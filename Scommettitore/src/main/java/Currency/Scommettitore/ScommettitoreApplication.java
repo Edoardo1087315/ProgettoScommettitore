@@ -8,6 +8,7 @@ public class ScommettitoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ScommettitoreApplication.class, args);
+		System.out.println("ciao");
 	}
 
 }
