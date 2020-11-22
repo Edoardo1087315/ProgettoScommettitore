@@ -12,7 +12,7 @@ public class ScommettitoreApplication {
 
 	public static void main(String[] args) throws IOException {
 		//SpringApplication.run(ScommettitoreApplication.class, args);
-		//JsonProva.sendLiveRequest();
+		JsonProva.sendLiveRequest();
 	    }
 	}
 
