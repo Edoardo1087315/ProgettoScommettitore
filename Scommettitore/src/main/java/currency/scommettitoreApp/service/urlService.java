@@ -9,8 +9,8 @@ public class urlService {
     public static final String BASE_URL = "http://api.currencylayer.com/";
     public static final String ENDPOINT = "live";
 
-    public static HttpGet geturl(String currencies) {
-    	HttpGet get = new HttpGet(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY + "&currencies=" + currencies);
+    public static String geturl(String currencies) {
+    	String get = new String(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY + "&currencies=" + currencies);
     	return get;
     }
 	
