@@ -1,4 +1,4 @@
-package Currency.Scommettitore.JSON;
+package defaultt;
 
 	import java.io.BufferedReader;
 	import java.io.IOException;
@@ -81,14 +81,13 @@ package Currency.Scommettitore.JSON;
 	            e.printStackTrace();
 	        }
 	    }
-	}
 
-	        /* sendLiveRequest() function is executed
+
+	        // sendLiveRequest() function is executed
 	    public static void main(String[] args) throws IOException{
 	        sendLiveRequest();
 	        httpClient.close();
 	        new BufferedReader(new InputStreamReader(System.in)).readLine();
-	    }
+	    
 	}
-
-*/
+	}

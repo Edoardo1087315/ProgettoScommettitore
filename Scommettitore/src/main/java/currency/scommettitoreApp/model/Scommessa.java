@@ -1,4 +1,4 @@
-package Currency.Scommettitore.model;
+package currency.scommettitoreApp.model;
 
 public class Scommessa {
 	
