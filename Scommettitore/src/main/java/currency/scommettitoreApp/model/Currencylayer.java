@@ -7,18 +7,19 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Vector;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Currencylayer {
 
-	static ApiParsing p = new ApiParsing();
+	static Vector<ApiParsing> p = new Vector<ApiParsing>();
 	
-	public static ApiParsing getJson(String url) throws MalformedURLException, IOException {
+	public static Vector<ApiParsing> getJson(String url[]) throws MalformedURLException, IOException {
 		
 		
-		
-		URLConnection openConnection = new URL(url).openConnection();
+		for(int i =0; i<=Data.getPeriodo(); i++) {
+		URLConnection openConnection = new URL(url[i]).openConnection();
 		InputStream in = openConnection.getInputStream();
 		
 		 String data = "";
@@ -35,9 +36,10 @@ public class Currencylayer {
 		 }
 		 
 		 ObjectMapper obj = new ObjectMapper();
-		 p = obj.readValue(data,ApiParsing.class);
-		 
+		 p.add(obj.readValue(data,ApiParsing.class));
+		}
 		 return p;
 	
 	}
 }
+

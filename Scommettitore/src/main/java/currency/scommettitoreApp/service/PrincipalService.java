@@ -14,13 +14,5 @@ import org.springframework.http.ResponseEntity;
 
 public class PrincipalService {
 	
-	static CloseableHttpClient httpClient = HttpClients.createDefault();
-	
-	public static HttpEntity LiveRequest(HttpUriRequest url) throws ClientProtocolException, IOException {
-        CloseableHttpResponse response =  httpClient.execute(url);
-        HttpEntity entity = response.getEntity();
-        JSONObject exchangeRates = new JSONObject(EntityUtils.toString(entity));
-        return entity;
-        
-	}
+	public 
 }

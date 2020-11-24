@@ -16,5 +16,9 @@ public class ApiParsing {
 	public String source;
 		
 	public HashMap<String,Double> quotes;
+	
+	public String date;
+	
+	public Boolean historical;
 		
 }
