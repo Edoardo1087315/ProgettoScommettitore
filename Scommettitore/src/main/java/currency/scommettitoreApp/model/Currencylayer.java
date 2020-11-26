@@ -13,11 +13,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Currencylayer {
 
-	static Vector<ApiParsing> p = new Vector<ApiParsing>();
+	
 	
 	public static Vector<ApiParsing> getJson(String url[]) throws MalformedURLException, IOException {
 		
-		
+		Vector<ApiParsing> p = new Vector<ApiParsing>();
 		for(int i =0; i<=Data.getPeriodo(); i++) {
 		URLConnection openConnection = new URL(url[i]).openConnection();
 		InputStream in = openConnection.getInputStream();
@@ -41,5 +41,31 @@ public class Currencylayer {
 		 return p;
 	
 	}
+	public static ApiParsing getJson(String url) throws MalformedURLException, IOException {
+		
+		ApiParsing p = new ApiParsing();
+		URLConnection openConnection = new URL(url).openConnection();
+		InputStream in = openConnection.getInputStream();
+		
+		 String data = "";
+		 String line = "";
+		 try {
+		   InputStreamReader inR = new InputStreamReader( in );
+		   BufferedReader buf = new BufferedReader( inR );
+		  
+		   while ( ( line = buf.readLine() ) != null ) {
+			   data+= line;
+		   }
+		 } finally {
+		   in.close();
+		 }
+		 
+		 ObjectMapper obj = new ObjectMapper();
+		 p = obj.readValue(data,ApiParsing.class);
+		
+		 return p;
+	
+	}
+
 }
 

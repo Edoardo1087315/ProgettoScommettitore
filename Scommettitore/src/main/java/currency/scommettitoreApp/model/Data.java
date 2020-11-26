@@ -45,4 +45,9 @@ public class Data {
 		return periodo;
 
 }
+	public static String dataOdierna() {
+		Date oggi = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format( oggi );
+	}
 }
