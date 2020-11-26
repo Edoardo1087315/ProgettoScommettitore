@@ -1,7 +1,6 @@
-package currency.scommettitoreApp.model;
+package currency.scommettitoreApp.currencylayer;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class ApiParsing {
 	

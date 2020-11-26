@@ -1,7 +1,6 @@
-package currency.scommettitoreApp.statistiche;
+package currency.scommettitoreApp.filtriEstatistiche;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
@@ -41,15 +40,15 @@ public class Filti {
 		}
 		return hs;		
 	}
-		
-	public HashMap<String,ModelloValuta> FiltraValute(HashMap<String,Modellovaluta> hs2, String Valute){
-		for(String x : Valute) {
-			hs2.
-		}
+
+	
+	public static void DecodeFilter(String filter) {
 		
 	}
 	
+	}
 	
-}
+	
+
 
 

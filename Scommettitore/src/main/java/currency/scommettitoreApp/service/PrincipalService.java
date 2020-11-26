@@ -1,38 +1,38 @@
 package currency.scommettitoreApp.service;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Vector;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-import org.springframework.http.ResponseEntity;
+import currency.scommettitoreApp.currencylayer.ApiParsing;
+import currency.scommettitoreApp.currencylayer.Currencylayer;
 
-import currency.scommettitoreApp.model.*;
-
+@org.springframework.stereotype.Service
 public class PrincipalService {
 	
 	
 	static Vector<ApiParsing> p = new Vector<ApiParsing>();
-	static HashMap<String,Vector<ApiParsing>> hs = new HashMap<String,Vector<ApiParsing>>();	
-	public static HashMap<String,Vector<ApiParsing>> CiclaDate(String from, String to) {
-		String giorni[] = Data.datatostring(from,to);
+	
+	public Vector<ApiParsing> CiclaDate(String from, String to) {
+		if(from.equals("") || to.equals("")) {
+			to = Data.DataOdierna();
+			from = Data.ieri();
+		}
+		
+		Vector<String> giorni = Data.DateRange(from,to);
 		for(String x : giorni) {
 			try {
-				p.add(Currencylayer.getJson(urlService.geturl(x)));
+				p.add(Currencylayer.GetJsonAndDecode(urlService.geturl(x)));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			hs.put(x,p);
 		}
-		return hs;
+		return p;
 			
 		}
+	public Vector<String> ReturnStringFromApiParsing(ApiParsing p){
+		Vector<String> vet = new Vector<String>();
+		vet.addAll(p.quotes.keySet());
+		return vet;
 	}
+	}
+
