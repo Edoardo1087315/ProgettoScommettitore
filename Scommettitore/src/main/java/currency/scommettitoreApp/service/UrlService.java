@@ -1,6 +1,6 @@
 package currency.scommettitoreApp.service;
 
-public class urlService {
+public class UrlService {
 
 	public static final String ACCESS_KEY = "b984309fa2a83b1bb5161cfad271e36a";
 	public static final String BASE_URL = "http://api.currencylayer.com/";

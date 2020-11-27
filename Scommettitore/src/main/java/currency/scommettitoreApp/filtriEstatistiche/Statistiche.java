@@ -3,7 +3,7 @@ package currency.scommettitoreApp.filtriEstatistiche;
 import java.util.Vector;
 
 
-public class statistiche {
+public class Statistiche {
 
 
 	public static double media(Vector<Double> vet) {

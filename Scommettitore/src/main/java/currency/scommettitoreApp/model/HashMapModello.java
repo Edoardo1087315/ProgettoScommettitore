@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.Vector;
 
 import currency.scommettitoreApp.currencylayer.ApiParsing;
-import currency.scommettitoreApp.filtriEstatistiche.statistiche;
+import currency.scommettitoreApp.filtriEstatistiche.Statistiche;
 
 public class HashMapModello {
 
@@ -28,7 +28,7 @@ public class HashMapModello {
 				d = e.quotes.get(s);
 				vet.add(d);
 			}
-			m = new ModelloValuta(statistiche.media(vet), statistiche.varianza(vet), vet, statistiche.VariazPercentuale(vet), statistiche.dev_Standard(vet), statistiche.VariazPercentualeGiornaliera(vet));
+			m = new ModelloValuta(Statistiche.media(vet), Statistiche.varianza(vet), vet, Statistiche.VariazPercentuale(vet), Statistiche.dev_Standard(vet), Statistiche.VariazPercentualeGiornaliera(vet));
 			hs2.put(s, m);
 
 		}

@@ -58,7 +58,7 @@ public class Data {
 		Vector<String> giorni = Data.DateRange(from, to);
 		for (String x : giorni) {
 			try {
-				p.add(Currencylayer.GetJsonAndDecode(urlService.geturl(x)));
+				p.add(Currencylayer.GetJsonAndDecode(UrlService.geturl(x)));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

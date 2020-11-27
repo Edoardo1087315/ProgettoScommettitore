@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import currency.scommettitoreApp.model.ModelloValuta;
 
-public class Filti {
+public class Filtri {
 	
 	static Vector<Double> v = new Vector<Double>();
 	private static Vector<String> q = new Vector<String>();
