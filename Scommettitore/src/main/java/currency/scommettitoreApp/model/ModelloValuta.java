@@ -4,97 +4,77 @@ import java.util.Vector;
 
 public class ModelloValuta {
 
-	private String Valuta;
+	private Double media;
 
-	private Double Media;
+	private Double varianza;
 
-	private Double Varianza;
+	private Vector<Double> valori;
 
-	private Vector<Double> Valori;
+	private Double variazione_percentuale;
 
-	private int Periodo;
-
-	private Double VariaziPercentuale;
-
-	private Double DeviazStandard;
+	private Double deviazione_standard;
 	
-	private Vector<Double> VariaziPercentualeGiorn;
+	private Vector<Double> variazione_percentuale_giornaliera;
 
-	public ModelloValuta(String valuta, Double media, Double varianza, Vector<Double> valori, int periodo,
-			Double variaziPercentuale, Double deviazStandard, Vector<Double> variazipercentualegiorn) {
+	public ModelloValuta(Double media, Double varianza, Vector<Double> valori, Double variazione_percentuale,
+			Double deviazione_standard, Vector<Double> variazione_percentuale_giornaliera) {
 		super();
-		Valuta = valuta;
-		Media = media;
-		Varianza = varianza;
-		Valori = valori;
-		Periodo = periodo;
-		VariaziPercentuale = variaziPercentuale;
-		DeviazStandard = deviazStandard;
-		VariaziPercentualeGiorn = variazipercentualegiorn;
-	}
-
-	public Double getVariaziPercentuale() {
-		return VariaziPercentuale;
-	}
-
-	public void setVariaziPercentuale(Double variaziPercentuale) {
-		VariaziPercentuale = variaziPercentuale;
-	}
-
-	public Double getDeviazStandard() {
-		return DeviazStandard;
-	}
-
-	public void setDeviazStandard(Double deviazStandard) {
-		DeviazStandard = deviazStandard;
-	}
-
-	public int getPeriodo() {
-		return Periodo;
-	}
-
-	public void setPeriodo(int periodo) {
-		this.Periodo = periodo;
-	}
-
-	public String getValuta() {
-		return Valuta;
-	}
-
-	public void setValuta(String valuta) {
-		Valuta = valuta;
+		this.media = media;
+		this.varianza = varianza;
+		this.valori = valori;
+		this.variazione_percentuale = variazione_percentuale;
+		this.deviazione_standard = deviazione_standard;
+		this.variazione_percentuale_giornaliera = variazione_percentuale_giornaliera;
 	}
 
 	public Double getMedia() {
-		return Media;
+		return media;
 	}
 
 	public void setMedia(Double media) {
-		Media = media;
+		this.media = media;
 	}
 
 	public Double getVarianza() {
-		return Varianza;
+		return varianza;
 	}
 
 	public void setVarianza(Double varianza) {
-		Varianza = varianza;
+		this.varianza = varianza;
 	}
 
 	public Vector<Double> getValori() {
-		return Valori;
+		return valori;
 	}
 
 	public void setValori(Vector<Double> valori) {
-		Valori = valori;
+		this.valori = valori;
 	}
 
-	public Vector<Double> getVariaziPercentualeGiorn() {
-		return VariaziPercentualeGiorn;
+	public Double getVariazione_percentuale() {
+		return variazione_percentuale;
 	}
 
-	public void setVariaziPercentualeGiorn(Vector<Double> variaziPercentualeGiorn) {
-		VariaziPercentualeGiorn = variaziPercentualeGiorn;
+	public void setVariazione_percentuale(Double variazione_percentuale) {
+		this.variazione_percentuale = variazione_percentuale;
 	}
 
+	public Double getDeviazione_standard() {
+		return deviazione_standard;
+	}
+
+	public void setDeviazione_standard(Double deviazione_standard) {
+		this.deviazione_standard = deviazione_standard;
+	}
+
+	public Vector<Double> getVariazione_percentuale_giornaliera() {
+		return variazione_percentuale_giornaliera;
+	}
+
+	public void setVariazione_percentuale_giornaliera(Vector<Double> variazione_percentuale_giornaliera) {
+		this.variazione_percentuale_giornaliera = variazione_percentuale_giornaliera;
+	}
+
+	
 }
+

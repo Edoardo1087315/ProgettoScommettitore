@@ -1,38 +1,27 @@
 package currency.scommettitoreApp.service;
 
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.Vector;
 
-import currency.scommettitoreApp.currencylayer.ApiParsing;
-import currency.scommettitoreApp.currencylayer.Currencylayer;
+import currency.scommettitoreApp.currencylayer.Valute;
+import currency.scommettitoreApp.model.HashMapModello;
+import currency.scommettitoreApp.model.Metadata;
+import currency.scommettitoreApp.model.ModelloValuta;
 
 @org.springframework.stereotype.Service
 public class PrincipalService {
-	
-	
-	static Vector<ApiParsing> p = new Vector<ApiParsing>();
-	
-	public Vector<ApiParsing> CiclaDate(String from, String to) {
-		if(from.equals("") || to.equals("")) {
-			to = Data.DataOdierna();
-			from = Data.ieri();
-		}
-		
-		Vector<String> giorni = Data.DateRange(from,to);
-		for(String x : giorni) {
-			try {
-				p.add(Currencylayer.GetJsonAndDecode(urlService.geturl(x)));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return p;
-			
-		}
-	public Vector<String> ReturnStringFromApiParsing(ApiParsing p){
-		Vector<String> vet = new Vector<String>();
-		vet.addAll(p.quotes.keySet());
-		return vet;
-	}
+
+	public Vector<String> GetValute() {
+		return Valute.GetStringsValute();
+
 	}
 
+	public HashMap<String, String> GetMatadata() {
+		return Metadata.GetMetadata();
+	}
+	
+	public HashMap<String,ModelloValuta> GetStatistiche(String from, String to){
+		return HashMapModello.HashMapValori(Data.CiclaDate(from,to));	
+	}
+
+}

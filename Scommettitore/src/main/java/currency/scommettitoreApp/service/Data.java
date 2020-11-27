@@ -1,11 +1,15 @@
 package currency.scommettitoreApp.service;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
+
+import currency.scommettitoreApp.currencylayer.ApiParsing;
+import currency.scommettitoreApp.currencylayer.Currencylayer;
 
 public class Data {
 
@@ -42,6 +46,27 @@ public class Data {
 		}
 		return giorni;
 	}
+	
+	static Vector<ApiParsing> p = new Vector<ApiParsing>();
+
+	public static Vector<ApiParsing> CiclaDate(String from, String to) {
+		if (from.equals("") || to.equals("")) {
+			to = Data.DataOdierna();
+			from = Data.ieri();
+		}
+
+		Vector<String> giorni = Data.DateRange(from, to);
+		for (String x : giorni) {
+			try {
+				p.add(Currencylayer.GetJsonAndDecode(urlService.geturl(x)));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return p;
+
+	}
+	
 
 	public static long GetPeriodo() {
 		return periodo;
