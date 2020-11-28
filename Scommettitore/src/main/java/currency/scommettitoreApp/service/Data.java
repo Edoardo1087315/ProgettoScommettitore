@@ -50,9 +50,12 @@ public class Data {
 	static Vector<ApiParsing> p = new Vector<ApiParsing>();
 
 	public static Vector<ApiParsing> CiclaDate(String from, String to) {
-		if (from.equals("") || to.equals("")) {
+		if (from.equals("") && to.equals("")) {
 			to = Data.DataOdierna();
 			from = Data.ieri();
+		}
+		else if(to.equals("")) {
+			to = Data.DataOdierna();
 		}
 
 		Vector<String> giorni = Data.DateRange(from, to);

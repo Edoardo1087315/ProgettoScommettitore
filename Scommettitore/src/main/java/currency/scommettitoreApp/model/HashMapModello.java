@@ -32,6 +32,7 @@ public class HashMapModello {
 			hs2.put(s, m);
 
 		}
+		hs2.remove("USDUSD"); //rimuovo questa conversione poichè inutile
 		return hs2;
 	}
 	

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import currency.scommettitoreApp.filtriEstatistiche.Filtri;
 import currency.scommettitoreApp.service.PrincipalService;
 
 
@@ -36,12 +37,13 @@ public class ScommesseController {
 	public ResponseEntity<Object> dati(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to) {
 		return new ResponseEntity<>(service.GetStatistiche(from, to), HttpStatus.OK);
-
+		
 	}
-
+	
+	
 	@RequestMapping(value = "/valute/filtri", method = RequestMethod.POST)
 	public ResponseEntity<Object> filtri(@RequestParam(name = "from", required = true) String from,
-			@RequestParam(name = "to", required = true) String to, @RequestBody String filter) {
-		// return new ResponseEntity<>();
+			@RequestParam(name = "to", defaultValue = "") String to, @RequestBody String filtro ) {
+		return new ResponseEntity<>(service.GetCostanti(from, to, filtro),HttpStatus.OK);
 	}
 }
