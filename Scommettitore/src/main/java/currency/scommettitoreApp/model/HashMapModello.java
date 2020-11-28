@@ -10,17 +10,16 @@ import currency.scommettitoreApp.filtriEstatistiche.Statistiche;
 
 public class HashMapModello {
 
-	static HashMap<String, ModelloValuta> hs2 = new HashMap<String, ModelloValuta>();
-	static Vector<Double> vet;
-	public static Double d;
-	public static ModelloValuta m;
-
 	public static HashMap<String, ModelloValuta> HashMapValori(Vector<ApiParsing> p) {
-		Iterator<ApiParsing> it = p.iterator();
-		ApiParsing e = it.next();
-		Set<String> x = e.quotes.keySet();
+		
+		HashMap<String, ModelloValuta> hs2 = new HashMap<String, ModelloValuta>();
+		Vector<Double> vet;
+		Double d;
+		ModelloValuta m;
+		ApiParsing e = new ApiParsing();
 
-		for (String s : x) {
+		
+		for (String s : p.get(0).quotes.keySet()) {
 			Iterator<ApiParsing> it2 = p.iterator();
 			vet = new Vector<Double>();
 			while (it2.hasNext()) {

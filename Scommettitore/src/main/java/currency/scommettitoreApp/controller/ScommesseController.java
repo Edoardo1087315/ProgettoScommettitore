@@ -1,6 +1,7 @@
 package currency.scommettitoreApp.controller;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import currency.scommettitoreApp.filtriEstatistiche.Filtri;
 import currency.scommettitoreApp.service.PrincipalService;
-
 
 @RestController
 public class ScommesseController {
 	@Autowired
 	PrincipalService service;
-
-	// final static String oggi = Data.DataOdierna();
 
 	@RequestMapping(value = "/valute", method = RequestMethod.GET)
 	public ResponseEntity<Object> valute() throws MalformedURLException, IOException {
@@ -37,13 +34,14 @@ public class ScommesseController {
 	public ResponseEntity<Object> dati(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to) {
 		return new ResponseEntity<>(service.GetStatistiche(from, to), HttpStatus.OK);
-		
+
 	}
-	
-	
+
 	@RequestMapping(value = "/valute/filtri", method = RequestMethod.POST)
 	public ResponseEntity<Object> filtri(@RequestParam(name = "from", required = true) String from,
-			@RequestParam(name = "to", defaultValue = "") String to, @RequestBody String filtro ) {
-		return new ResponseEntity<>(service.GetCostanti(from, to, filtro),HttpStatus.OK);
+			@RequestParam(name = "to", defaultValue = "") String to, @RequestBody String filtro)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
+			SecurityException, InstantiationException {
+		return new ResponseEntity<>(service.GetCostanti(from, to, filtro), HttpStatus.OK);
 	}
 }

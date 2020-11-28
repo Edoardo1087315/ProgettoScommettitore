@@ -1,9 +1,9 @@
 package currency.scommettitoreApp.service;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Jaas;
 
 import currency.scommettitoreApp.currencylayer.Valute;
 import currency.scommettitoreApp.filtriEstatistiche.Filtri;
@@ -28,7 +28,7 @@ public class PrincipalService {
 		return HashMapModello.HashMapValori(Data.CiclaDate(from,to));	
 	}
 	
-	public java.util.List<Ausiliare> GetCostanti(String from, String to, String filtro){
+	public ArrayList<Ausiliare> GetCostanti(String from, String to, String filtro) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException{
 		 return Filtri.filtri(filtro,HashMapModello.HashMapValori(Data.CiclaDate(from, to)));
 	}
 }

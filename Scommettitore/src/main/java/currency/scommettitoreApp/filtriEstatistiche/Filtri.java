@@ -1,6 +1,7 @@
 package currency.scommettitoreApp.filtriEstatistiche;
 
 import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -11,60 +12,51 @@ import java.util.Vector;
 
 import javax.swing.text.html.HTMLDocument.Iterator;
 
+import java.lang.reflect.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import currency.scommettitoreApp.model.Ausiliare;
+import currency.scommettitoreApp.model.Metodi;
 import currency.scommettitoreApp.model.ModelloFiltro;
 import currency.scommettitoreApp.model.ModelloValuta;
 
 public class Filtri {
 
-	public static java.util.List<Ausiliare> filtri(String filtro,HashMap<String,ModelloValuta> hs) {
+	public static ArrayList<Ausiliare> filtri(String filtro,HashMap<String,ModelloValuta> hs) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException {
 		
-		ModelloFiltro e = new ModelloFiltro();
-		
+		HashMap<String,Object> body = new HashMap<String,Object>();	
+		ArrayList<Ausiliare> ls = null;
 		ObjectMapper obj = new ObjectMapper();
-		
 		try {
-			e = obj.readValue(filtro, ModelloFiltro.class);
+			body = obj.readValue(filtro,HashMap.class);
 		} catch (JsonProcessingException e1) {
 			e1.printStackTrace();
 		}
+
+		HashMap<String,Integer> metodi = new HashMap<String,Integer>();
 		
-		if(e.migliori.equals("migliori")) {
-			return ValuteCostanti(hs,e.quantita,e.migliori);
+		for(String campo: body.keySet()) {
+			metodi = (HashMap<String, Integer>) body.get(campo);
+			for(String metodo : metodi.keySet()) {
+			String Metodo = metodo;
+			Integer parametro = metodi.get(metodo);
+			Class<?> typeClass;
+			try {
+				typeClass = Class.forName("currency.scommettitoreApp.filtriEstatistiche.Filtra"+campo);
+				Constructor<?> constructor = typeClass.getConstructor();
+				Object classe = constructor.newInstance();
+				Method method=typeClass.getMethod(Metodo, HashMap.class, Integer.class, String.class);
+				ls = (ArrayList<Ausiliare>) method.invoke(classe,hs,parametro, Metodo);
+		} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} 
 		}
-		else if(e.migliori.equals("peggiori")) {
-			return ValuteCostanti(hs,e.quantita,e.migliori);
-		}
-		else
-			System.out.println("metodo sbagliato");
-		return null;
-	}
+		
 	
 	
-	
 
-	public static java.util.List<Ausiliare> ValuteCostanti(HashMap<String, ModelloValuta> hs, int quantita,
-			String metodo) {
-
-		ArrayList<Ausiliare> lista = new ArrayList<Ausiliare>();
-		Ausiliare e;
-		for (String valuta : hs.keySet()) {
-			e = new Ausiliare();
-			e.setDev_stand(hs.get(valuta).getDeviazione_standard());
-			e.setValuta(valuta);
-			lista.add(e);
 		}
-		if (metodo.equals("migliore"))
-			lista.sort(Comparator.comparing(Ausiliare::getDev_stand));
-		else
-			lista.sort(Comparator.comparing(Ausiliare::getDev_stand).reversed());
+		return ls;
+	}}
 
-		return lista.subList(0, quantita);
-
-	}
-
-
-}

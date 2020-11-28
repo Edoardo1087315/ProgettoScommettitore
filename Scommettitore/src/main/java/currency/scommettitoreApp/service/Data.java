@@ -19,16 +19,17 @@ public class Data {
 
 	public static Vector<String> DateRange(String data1, String data2) {
 
-		Date date1 = null;
-		Date date2 = null;
+		Date date1 = new Date();
+		Date date2 = new Date();
 		
 		try {
 			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(data1);
 			date2 = new SimpleDateFormat("yyyy-MM-dd").parse(data2);
 		} catch (ParseException e) {
-
 			e.printStackTrace();
+			
 		}
+		
 
 		
 		periodo = ((date2.getTime() - date1.getTime()) / (DAY));
@@ -47,9 +48,11 @@ public class Data {
 		return giorni;
 	}
 	
-	static Vector<ApiParsing> p = new Vector<ApiParsing>();
 
 	public static Vector<ApiParsing> CiclaDate(String from, String to) {
+		
+		Vector<ApiParsing> p = new Vector<ApiParsing>();
+		
 		if (from.equals("") && to.equals("")) {
 			to = Data.DataOdierna();
 			from = Data.ieri();
