@@ -24,11 +24,11 @@ public class PrincipalService {
 		return Metadata.GetMetadata();
 	}
 	
-	public HashMap<String,ModelloValuta> GetStatistiche(String from, String to){
-		return HashMapModello.HashMapValori(Data.CiclaDate(from,to));	
+	public HashMap<String,ModelloValuta> GetStatistiche(String from, String to,String currencies){
+		return HashMapModello.HashMapValori(Data.CiclaDate(from,to,currencies));	
 	}
 	
-	public ArrayList<Ausiliare> GetCostanti(String from, String to, String filtro) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException{
-		 return Filtri.filtri(filtro,HashMapModello.HashMapValori(Data.CiclaDate(from, to)));
+	public ArrayList<Ausiliare> GetCostanti(String from, String to, String filtro, String currencies) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException{
+		 return Filtri.filtri(filtro,HashMapModello.HashMapValori(Data.CiclaDate(from, to,currencies)));
 	}
 }

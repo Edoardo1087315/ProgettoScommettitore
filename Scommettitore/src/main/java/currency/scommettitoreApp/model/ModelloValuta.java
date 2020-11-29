@@ -74,7 +74,6 @@ public class ModelloValuta {
 	public void setVariazione_percentuale_giornaliera(Vector<Double> variazione_percentuale_giornaliera) {
 		this.variazione_percentuale_giornaliera = variazione_percentuale_giornaliera;
 	}
-
 	
 }
 

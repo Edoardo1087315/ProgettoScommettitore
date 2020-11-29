@@ -13,24 +13,20 @@ import currency.scommettitoreApp.currencylayer.Currencylayer;
 
 public class Data {
 
-	static long periodo = 0;
 	static final int DAY = (24*60*60*1000);
-	static final int MAX = 30;
 
-	public static Vector<String> DateRange(String data1, String data2) {
-
+	public static Vector<String> DateRange(String from, String to) {
+		long periodo = 0;
 		Date date1 = new Date();
 		Date date2 = new Date();
 		
 		try {
-			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(data1);
-			date2 = new SimpleDateFormat("yyyy-MM-dd").parse(data2);
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(from);
+			date2 = new SimpleDateFormat("yyyy-MM-dd").parse(to);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			
 		}
-		
-
 		
 		periodo = ((date2.getTime() - date1.getTime()) / (DAY));
 
@@ -49,13 +45,13 @@ public class Data {
 	}
 	
 
-	public static Vector<ApiParsing> CiclaDate(String from, String to) {
+	public static Vector<ApiParsing> CiclaDate(String from, String to, String currencies) {
 		
 		Vector<ApiParsing> p = new Vector<ApiParsing>();
 		
 		if (from.equals("") && to.equals("")) {
 			to = Data.DataOdierna();
-			from = Data.ieri();
+			from = Data.DataIeri();
 		}
 		else if(to.equals("")) {
 			to = Data.DataOdierna();
@@ -64,26 +60,21 @@ public class Data {
 		Vector<String> giorni = Data.DateRange(from, to);
 		for (String x : giorni) {
 			try {
-				p.add(Currencylayer.GetJsonAndDecode(UrlService.geturl(x)));
+				p.add(Currencylayer.GetJsonAndDecode(UrlService.geturl(x,currencies)));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 		return p;
-
 	}
 	
-
-	public static long GetPeriodo() {
-		return periodo;
-
-}
 	public static String DataOdierna() {
 		Date oggi = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format( oggi );
 	}
-	public static String ieri() {
+	
+	public static String DataIeri() {
 		Date oggi = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(oggi.getTime()-DAY);

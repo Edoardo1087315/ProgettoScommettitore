@@ -13,7 +13,7 @@ public class Valute {
 	ApiParsing p = new ApiParsing();
 		
 	try {
-		p = Currencylayer.GetJsonAndDecode(UrlService.geturl(Data.DataOdierna()));
+		p = Currencylayer.GetJsonAndDecode(UrlService.geturl(Data.DataOdierna(), ""));
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
