@@ -1,8 +1,10 @@
 package currency.scommettitoreApp.controller;
 
+import java.awt.PageAttributes.MediaType;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
+import java.net.http.HttpHeaders;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,8 +47,17 @@ public class ScommesseController {
 			SecurityException, InstantiationException {
 		return new ResponseEntity<>(service.GetCostanti(from, to, filtro,currencies), HttpStatus.OK);
 	}
+
+	@RequestMapping(value = "/valute/grafico", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> getGraph(@RequestParam(name = "from", defaultValue = "") String from,
+			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "") String currencies) throws Exception {
+		
+		return ResponseEntity.status(HttpStatus.OK)
+			.contentType(org.springframework.http.MediaType.IMAGE_PNG)
+            .body(service.GetGrafico(from, to, currencies));
+	}
 }
-	/*
+            /*
 	@ExceptionHandler(NoSuchMethodException.class)
 	public ResponseEntity<Object> handleNoSuchMethodException(NoSuchMethodException e) {
 		ExceptionError error = new ExceptionError(Calendar.getInstance() , HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() ,"Controlla di aver scritto bene!");

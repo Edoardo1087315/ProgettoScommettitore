@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
+import currency.scommettitoreApp.Plot.Grafico;
 import currency.scommettitoreApp.currencylayer.Valute;
 import currency.scommettitoreApp.filtriEstatistiche.Filtri;
 import currency.scommettitoreApp.model.Ausiliare;
@@ -30,5 +31,9 @@ public class PrincipalService {
 	
 	public ArrayList<Ausiliare> GetCostanti(String from, String to, String filtro, String currencies) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException{
 		 return Filtri.filtri(filtro,HashMapModello.HashMapValori(Data.CiclaDate(from, to,currencies)));
+	}
+	
+	public byte[] GetGrafico(String from, String to, String currencies) throws Exception {
+		return Grafico.GraficoLineare(HashMapModello.HashMapValori(Data.CiclaDate(from, to, currencies)), from, to);
 	}
 }
