@@ -2,7 +2,6 @@ package currency.scommettitoreApp.model;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
 import java.util.Vector;
 
 import currency.scommettitoreApp.currencylayer.ApiParsing;

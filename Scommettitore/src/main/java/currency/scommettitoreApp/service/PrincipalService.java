@@ -26,7 +26,7 @@ public class PrincipalService {
 
 	}
 
-	public HashMap<String, String> GetMatadata() {
+	public HashMap<String, String> GetMetadata() {
 		return Metadata.GetMetadata();
 	}
 	

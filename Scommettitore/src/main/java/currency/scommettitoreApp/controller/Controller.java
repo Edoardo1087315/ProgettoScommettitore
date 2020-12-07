@@ -25,29 +25,29 @@ import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.service.PrincipalService;
 
 @RestController
-public class ScommesseController {
+public class Controller {
 	@Autowired
 	PrincipalService service;
 
 	@RequestMapping(value = "/valute", method = RequestMethod.GET)
-	public ResponseEntity<Object> valute() throws MalformedURLException, IOException, UrlException {
+	public ResponseEntity<Object> getValute() throws MalformedURLException, IOException, UrlException {
 		return new ResponseEntity<>(service.GetValute(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
-	public ResponseEntity<Object> metadata() {
-		return new ResponseEntity<>(service.GetMatadata(), HttpStatus.OK);
+	public ResponseEntity<Object> getMetadata() {
+		return new ResponseEntity<>(service.GetMetadata(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/valute/statistiche", method = RequestMethod.GET)
-	public ResponseEntity<Object> dati(@RequestParam(name = "from", defaultValue = "") String from,
+	public ResponseEntity<Object> getStatistiche(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DataException {
 		return new ResponseEntity<>(service.GetStatistiche(from, to,currencies), HttpStatus.OK);
 
 	}
 
 	@RequestMapping(value = "/valute/filtri", method = RequestMethod.POST)
-	public ResponseEntity<Object> filtri(@RequestParam(name = "from", defaultValue = "") String from,
+	public ResponseEntity<Object> getFiltri(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filtro)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
 			SecurityException, InstantiationException, UrlException, DataException, JsonMappingException, JsonProcessingException {
@@ -55,7 +55,7 @@ public class ScommesseController {
 	}
 
 	@RequestMapping(value = "/valute/grafico", method = RequestMethod.GET)
-	public ResponseEntity<byte[]> getGraph(@RequestParam(name = "from", defaultValue = "") String from,
+	public ResponseEntity<byte[]> getGrafico(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "EUR") String currencies) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK)
