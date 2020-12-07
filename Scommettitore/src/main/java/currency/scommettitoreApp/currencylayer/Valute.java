@@ -3,12 +3,13 @@ package currency.scommettitoreApp.currencylayer;
 import java.io.IOException;
 import java.util.Vector;
 
+import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.service.Data;
 import currency.scommettitoreApp.service.UrlService;
 
 public class Valute {
 
-	public static Vector<String> GetStringsValute(){
+	public static Vector<String> GetStringsValute() throws UrlException{
 	
 	ApiParsing p = new ApiParsing();
 		

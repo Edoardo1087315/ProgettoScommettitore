@@ -10,9 +10,11 @@ import java.net.URLConnection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import currency.scommettitoreApp.exceptions.UrlException;
+
 public class Currencylayer {
 
-	public static ApiParsing GetJsonAndDecode(String url) throws MalformedURLException, IOException {
+	public static ApiParsing GetJsonAndDecode(String url) throws MalformedURLException, IOException, UrlException {
 		
 		ApiParsing p = new ApiParsing();
 		URLConnection openConnection = new URL(url).openConnection();
@@ -31,6 +33,9 @@ public class Currencylayer {
 		   in.close();
 		 }
 		 
+		 if(data.contains("\"success\":false")) {
+			 throw new UrlException();
+		 }
 		 ObjectMapper obj = new ObjectMapper();
 		 p = obj.readValue(data,ApiParsing.class);
 		

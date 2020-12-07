@@ -26,13 +26,13 @@ public class Grafico {
 
    public static byte[] GraficoLineare(HashMap<String,ModelloValuta> hs2, String from, String to) throws Exception {
       DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-      long periodo = Data.getPeriodo(from,to);
       Vector<String> date = Data.DateRange(from, to);
+      long periodo = Data.getPeriodo(from,to);
       Set<String> x = hs2.keySet(); 
       for(String y : x) {
     	  Iterator<Double> it = hs2.get(y).getValori().iterator();
     	  Iterator<String> it2 = date.iterator();
-     	  for(int i = 0; i<periodo; i++) {
+     	  for(int i = 0; i<=periodo; i++) {
     	 line_chart_dataset.addValue(it.next(), y, it2.next());
     	 }
       }

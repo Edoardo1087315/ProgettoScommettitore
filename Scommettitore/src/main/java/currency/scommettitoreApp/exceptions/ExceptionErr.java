@@ -1,12 +1,10 @@
 package currency.scommettitoreApp.exceptions;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.http.HttpStatus;
 
-public class Exception {
-	public class ExceptionError {
+public class ExceptionErr {
 		
 		private Date date;
 		private HttpStatus httpStatus;
@@ -14,14 +12,14 @@ public class Exception {
 		private String message;
 		
 		/**
-		 * Costruttore di ExceptionError con parametri
+		 * Costruttore di ExceptionErr con parametri
 		 *
 		 * @param date orario della richiesta
 		 * @param httpStatus 
 		 * @param exception l'eccezione generata
 		 * @param message messaggio dell'eccezione
 		 */
-		public ExceptionError(Date date, HttpStatus httpStatus, String exception, String message) {
+		public ExceptionErr(Date date, HttpStatus httpStatus, String exception, String message) {
 			super();
 			this.date=date;
 			this.httpStatus = httpStatus;
@@ -71,4 +69,4 @@ public class Exception {
 		
 		
 	}
-}
+
