@@ -23,22 +23,21 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Chart {
 
-	public static byte[] lineChart(HashMap<String, CurrencyModel> hs2, String from, String to)
+	public static byte[] lineChart(HashMap<String, CurrencyModel> hs, String from, String to)
 			throws DateException, ParseException {
 		DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
 		Vector<String> date = DateService.dateRange(from, to);
 		long period = DateService.getPeriod(from, to);
-		Set<String> x = hs2.keySet();
+		Set<String> x = hs.keySet();
 		for (String y : x) {
-			Iterator<Double> it = hs2.get(y).getValues().iterator();
+			Iterator<Double> it = hs.get(y).getValues().iterator();
 			Iterator<String> it2 = date.iterator();
 			for (int i = 0; i <= period; i++) {
 				line_chart_dataset.addValue(it.next(), y, it2.next());
 			}
 		}
 
-		JFreeChart lineChartObject = ChartFactory.createLineChart("Variazioni", "Date", "Valori",
-				line_chart_dataset,
+		JFreeChart lineChartObject = ChartFactory.createLineChart("Variazioni", "Date", "Valori", line_chart_dataset,
 				PlotOrientation.VERTICAL, true, true, false);
 
 		CategoryPlot plot = (CategoryPlot) lineChartObject.getPlot();

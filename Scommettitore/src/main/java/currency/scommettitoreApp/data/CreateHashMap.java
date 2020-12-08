@@ -10,15 +10,15 @@ import currency.scommettitoreApp.model.CurrencyModel;
 
 public class CreateHashMap {
 
-	public static HashMap<String, CurrencyModel> createHashMap(Vector<ApiModel> p) {
+	public static HashMap<String, CurrencyModel> createHashMap(Vector<ApiModel> v) {
 
 		HashMap<String, CurrencyModel> hs = new HashMap<String, CurrencyModel>();
 		Vector<Double> vet;
 		CurrencyModel m;
 		ApiModel e = new ApiModel();
 
-		for (String s : p.get(0).quotes.keySet()) {
-			Iterator<ApiModel> it2 = p.iterator();
+		for (String s : v.get(0).quotes.keySet()) {
+			Iterator<ApiModel> it2 = v.iterator();
 			vet = new Vector<Double>();
 			while (it2.hasNext()) {
 				e = it2.next();

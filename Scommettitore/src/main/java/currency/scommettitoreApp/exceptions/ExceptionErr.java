@@ -47,7 +47,7 @@ public class ExceptionErr {
 		return date;
 	}
 
-	public void setC(Date date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

@@ -27,7 +27,6 @@ public class Statistics {
 
 	public static double percentageVariation(Vector<Double> vet) {
 		double percentage_variation = 0.0;
-
 		percentage_variation = ((vet.lastElement() - vet.firstElement()) / vet.firstElement()) * 100;
 		return percentage_variation;
 	}
@@ -36,7 +35,6 @@ public class Statistics {
 		Vector<Double> percentage_variation = new Vector<Double>();
 		for (int i = 0; i < (vet.size() - 1); i++)
 			percentage_variation.add((vet.elementAt(i + 1) - vet.elementAt(i)) / (vet.elementAt(i)) * 100);
-
 		return percentage_variation;
 	}
 

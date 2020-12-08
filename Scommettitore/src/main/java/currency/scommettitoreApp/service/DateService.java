@@ -8,15 +8,14 @@ import java.util.Vector;
 
 import currency.scommettitoreApp.exceptions.DateException;
 
-public class DateService{
+public class DateService {
 
 	private static final int DAY = (24 * 60 * 60 * 1000);
 
 	private static Date from_date;
 	private static Date to_date;
-	
 
-	public static void dateVerify(String from, String to) throws ParseException{
+	public static void dateVerify(String from, String to) throws ParseException {
 
 		if (from.equals("") && to.equals("")) {
 			to = today();
@@ -31,7 +30,7 @@ public class DateService{
 
 	public static Vector<String> dateRange(String from, String to) throws DateException, ParseException {
 
-		Long period = getPeriod(from,to);
+		Long period = getPeriod(from, to);
 
 		Vector<String> days = new Vector<String>();
 
@@ -43,7 +42,6 @@ public class DateService{
 		}
 		return days;
 	}
-
 
 	public static String today() {
 		Date today = new Date();
@@ -57,9 +55,9 @@ public class DateService{
 		return sdf.format(today.getTime() - DAY);
 	}
 
-	public static long getPeriod(String from,String to) throws DateException, ParseException {
-		dateVerify(from,to);
-		if(to_date.getTime()-from_date.getTime() <= 0) {
+	public static long getPeriod(String from, String to) throws DateException, ParseException {
+		dateVerify(from, to);
+		if (to_date.getTime() - from_date.getTime() <= 0) {
 			throw new DateException();
 		}
 		return ((to_date.getTime() - from_date.getTime()) / (DAY));

@@ -12,26 +12,25 @@ import currency.scommettitoreApp.service.*;
 
 public class Currencies {
 
-	public static Vector<String> getCurrencies() throws MalformedURLException, UrlException, IOException{
-	
-	ApiModel p = new ApiModel();
-		
-		p = Currencylayer.getJsonAndDecode(UrlService.geturl(DateService.today(), ""));
+	public static Vector<String> getCurrencies() throws MalformedURLException, UrlException, IOException {
 
-	
-	Vector<String> vet = new Vector<String>();
-	vet.addAll(p.quotes.keySet());
-	return vet;
-}
-	
-public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies)
-		throws MalformedURLException, UrlException, IOException, DateException, ParseException {
+		ApiModel p = new ApiModel();
+
+		p = Currencylayer.getJsonAndDecode(UrlService.getUrl(DateService.today(), ""));
+
+		Vector<String> vet = new Vector<String>();
+		vet.addAll(p.quotes.keySet());
+		return vet;
+	}
+
+	public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies)
+			throws MalformedURLException, UrlException, IOException, DateException, ParseException {
 
 		Vector<ApiModel> p = new Vector<ApiModel>();
 
 		Vector<String> days = DateService.dateRange(from, to);
 		for (String day : days) {
-				p.add(Currencylayer.getJsonAndDecode(UrlService.geturl(day, currencies)));
+			p.add(Currencylayer.getJsonAndDecode(UrlService.getUrl(day, currencies)));
 		}
 		return p;
 	}
