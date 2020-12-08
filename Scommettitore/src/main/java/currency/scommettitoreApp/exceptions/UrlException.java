@@ -1,6 +1,6 @@
 package currency.scommettitoreApp.exceptions;
 
-public class UrlException extends GenericError{
+public class UrlException extends GenericError {
 	/**
 	 * 
 	 */
@@ -8,6 +8,6 @@ public class UrlException extends GenericError{
 
 	public String getMessage() {
 		return "Verifica di aver scritto correttamente i parametri";
-		
+
 	}
 }

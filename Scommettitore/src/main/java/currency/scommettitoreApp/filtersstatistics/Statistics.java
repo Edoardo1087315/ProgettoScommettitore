@@ -2,9 +2,7 @@ package currency.scommettitoreApp.filtersstatistics;
 
 import java.util.Vector;
 
-
 public class Statistics {
-
 
 	public static double average(Vector<Double> vet) {
 
@@ -36,8 +34,8 @@ public class Statistics {
 
 	public static Vector<Double> dailyPercentageVariation(Vector<Double> vet) {
 		Vector<Double> percentage_variation = new Vector<Double>();
-		for (int i = 0; i < (vet.size()-1);i++)
-			percentage_variation.add((vet.elementAt(i+1) - vet.elementAt(i)) / (vet.elementAt(i)) * 100);
+		for (int i = 0; i < (vet.size() - 1); i++)
+			percentage_variation.add((vet.elementAt(i + 1) - vet.elementAt(i)) / (vet.elementAt(i)) * 100);
 
 		return percentage_variation;
 	}

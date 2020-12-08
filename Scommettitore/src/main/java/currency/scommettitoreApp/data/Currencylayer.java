@@ -15,7 +15,7 @@ import currency.scommettitoreApp.model.ApiModel;
 
 public class Currencylayer {
 
-	public static ApiModel getJsonAndDecode(String url) throws MalformedURLException, IOException, UrlException {
+	public static ApiModel getJsonAndDecode(String url) throws MalformedURLException, IOException, UrlException{
 		
 		ApiModel p = new ApiModel();
 		URLConnection openConnection = new URL(url).openConnection();

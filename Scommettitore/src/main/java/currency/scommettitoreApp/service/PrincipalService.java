@@ -1,6 +1,8 @@
 package currency.scommettitoreApp.service;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +24,7 @@ import currency.scommettitoreApp.model.CurrencyModel;
 @org.springframework.stereotype.Service
 public class PrincipalService {
 
-	public Vector<String> getCurrencies() throws UrlException {
+	public Vector<String> getCurrencies() throws MalformedURLException, UrlException, IOException {
 		return Currencies.getCurrencies();
 
 	}
@@ -31,15 +33,16 @@ public class PrincipalService {
 		return Metadata.getMetadata();
 	}
 	
-	public HashMap<String,CurrencyModel> getStatistics(String from, String to,String currencies) throws UrlException, DateException, ParseException{
+	public HashMap<String,CurrencyModel> getStatistics(String from, String to,String currencies) throws MalformedURLException, UrlException, IOException, DateException, ParseException{
 		return CreateHashMap.createHashMap(Currencies.vectorApiModel(from,to,currencies));	
 	}
 	
-	public ArrayList<ConstantCurrencyModel> getFiltered(String from, String to, String filter, String currencies) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException, UrlException, DateException, JsonMappingException, JsonProcessingException, ParseException{
+	public ArrayList<ConstantCurrencyModel> getFiltered(String from, String to, String filter, String currencies) throws JsonMappingException, JsonProcessingException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException, UrlException, IOException, DateException, ParseException {
 		 return BodyParsing.bodyParsing(filter,CreateHashMap.createHashMap(Currencies.vectorApiModel(from, to,currencies)));
 	}
 	
-	public byte[] getChart(String from, String to, String currencies) throws Exception {
+	public byte[] getChart(String from, String to, String currencies)
+			throws MalformedURLException, UrlException, IOException, DateException, ParseException {
 		return Chart.lineChart(CreateHashMap.createHashMap(Currencies.vectorApiModel(from, to, currencies)), from, to);
 	}
 }

@@ -31,60 +31,70 @@ public class Controller {
 	PrincipalService service;
 
 	@RequestMapping(value = "/currencies", method = RequestMethod.GET)
-	public ResponseEntity<Object> getCurrencies() throws MalformedURLException, IOException, UrlException {
+	public ResponseEntity<Object> getCurrencies() throws MalformedURLException, UrlException, IOException {
 		return new ResponseEntity<>(service.getCurrencies(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
+	@RequestMapping(value = "currencies/metadata", method = RequestMethod.GET)
 	public ResponseEntity<Object> getMetadata() {
 		return new ResponseEntity<>(service.getMetadata(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/currencies/statistics", method = RequestMethod.GET)
 	public ResponseEntity<Object> getStatistics(@RequestParam(name = "from", defaultValue = "") String from,
-			@RequestParam(name = "to", defaultValue = "") String to,@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DateException, java.text.ParseException {
-		return new ResponseEntity<>(service.getStatistics(from, to,currencies), HttpStatus.OK);
+			@RequestParam(name = "to", defaultValue = "") String to,
+			@RequestParam(name = "currencies", defaultValue = "") String currencies)
+			throws MalformedURLException, UrlException, DateException, IOException, java.text.ParseException {
+		return new ResponseEntity<>(service.getStatistics(from, to, currencies), HttpStatus.OK);
 
 	}
 
 	@RequestMapping(value = "/currencies/filters", method = RequestMethod.POST)
 	public ResponseEntity<Object> getFiltered(@RequestParam(name = "from", defaultValue = "") String from,
-			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filtro)
-			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
-			SecurityException, InstantiationException, UrlException, DateException, JsonMappingException, JsonProcessingException, java.text.ParseException {
-		return new ResponseEntity<>(service.getFiltered(from, to, filtro,currencies), HttpStatus.OK);
+			@RequestParam(name = "to", defaultValue = "") String to,
+			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filtro)
+			throws JsonMappingException, JsonProcessingException, NoSuchMethodException, SecurityException,
+			IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException,
+			UrlException, DateException, IOException, java.text.ParseException {
+		return new ResponseEntity<>(service.getFiltered(from, to, filtro, currencies), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/currencies/chart", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getChart(@RequestParam(name = "from", defaultValue = "") String from,
-			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "EUR") String currencies) throws Exception {
-		
-		return ResponseEntity.status(HttpStatus.OK)
-			.contentType(org.springframework.http.MediaType.IMAGE_PNG)
-            .body(service.getChart(from, to, currencies));
+			@RequestParam(name = "to", defaultValue = "") String to,
+			@RequestParam(name = "currencies", defaultValue = "EUR") String currencies)
+			throws MalformedURLException, UrlException, DateException, IOException, java.text.ParseException {
+
+		return ResponseEntity.status(HttpStatus.OK).contentType(org.springframework.http.MediaType.IMAGE_PNG)
+				.body(service.getChart(from, to, currencies));
 	}
-            
+
 	@ExceptionHandler(NoSuchMethodException.class)
 	public ResponseEntity<Object> handleNoSuchMethodException(NoSuchMethodException e) {
-		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST , e.getClass().getCanonicalName() ,"Controlla di aver utilizzato i metodi disponibili");
-		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),
+				"Controlla di aver utilizzato i metodi disponibili");
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
+
 	@ExceptionHandler(JsonProcessingException.class)
-	public ResponseEntity<Object> handleJsonProcessingException(JsonProcessingException e){
-		ExceptionErr error = new ExceptionErr(new Date(),HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),"Controlla di aver scritto correttamente il body");
-		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+	public ResponseEntity<Object> handleJsonProcessingException(JsonProcessingException e) {
+		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),
+				"Controlla di aver scritto correttamente il body");
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
+
 	@ExceptionHandler(ParseException.class)
-	public ResponseEntity<Object> handleParseException(ParseException e){
-		ExceptionErr error = new ExceptionErr(new Date(),HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),"Controlla di aver immesso le date come richiesto");
-		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+	public ResponseEntity<Object> handleParseException(ParseException e) {
+		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),
+				"Controlla di aver immesso le date come richiesto");
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
-	
+
 	@ExceptionHandler(GenericError.class)
-	public ResponseEntity<Object> handleGenericError(GenericError e){
-		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName() , e.getMessage());
-		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+	public ResponseEntity<Object> handleGenericError(GenericError e) {
+		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),
+				e.getMessage());
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
 
 }
-	

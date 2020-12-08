@@ -1,6 +1,7 @@
 package currency.scommettitoreApp.data;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.Vector;
 
@@ -11,32 +12,26 @@ import currency.scommettitoreApp.service.*;
 
 public class Currencies {
 
-	public static Vector<String> getCurrencies() throws UrlException{
+	public static Vector<String> getCurrencies() throws MalformedURLException, UrlException, IOException{
 	
 	ApiModel p = new ApiModel();
 		
-	try {
 		p = Currencylayer.getJsonAndDecode(UrlService.geturl(DateService.today(), ""));
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
+
 	
 	Vector<String> vet = new Vector<String>();
 	vet.addAll(p.quotes.keySet());
 	return vet;
 }
 	
-	public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies) throws UrlException, DateException, ParseException {
+public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies)
+		throws MalformedURLException, UrlException, IOException, DateException, ParseException {
 
 		Vector<ApiModel> p = new Vector<ApiModel>();
 
 		Vector<String> days = DateService.dateRange(from, to);
 		for (String day : days) {
-			try {
 				p.add(Currencylayer.getJsonAndDecode(UrlService.geturl(day, currencies)));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 		return p;
 	}

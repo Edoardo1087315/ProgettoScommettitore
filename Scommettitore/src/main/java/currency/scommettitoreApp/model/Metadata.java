@@ -8,11 +8,13 @@ public class Metadata {
 		
 		HashMap<String,String> hs = new HashMap<String,String>();
 		
-		hs.put("success", "Restituisce vero o falso a seconda che la tua query abbia esito positivo o negativo. /n Type: Boolean");
-		hs.put("timestamp", "Restituisce la data e l'ora esatte (UNIX) in cui sono stati raccolti i tassi di cambio. /n Type: Long");
-		hs.put("source", "Restituisce la valuta a cui fanno riferimento tutti i tassi di cambio (USD). /n Type");
-		hs.put("quotes","Restituisce tutti i valori dei tassi di cambio, costituiti dalle coppie di valute e dai rispettivi tassi di conversione.");
-	
+		hs.put("values", "Contiene i valori della valuta in ordine nelle giornate richieste (dal meno recente al più recente).   Type: Vector<Double>");
+		hs.put("average", "Contiene il valore medio dei valori della valuta nel periodo scelto.   Type: Double");
+		hs.put("variance", "Contiene la varianza dei valori della valuta nel periodo scelto.   Type: Double");
+		hs.put("standard_deviation","Contiene la deviazione standard dei valori della valuta nel periodo scelto (Indice di volatilità).   Type: Double");
+		hs.put("percentage_variation","Contiene la variazione percentuale dei valori della valuta nel periodo scelto.   Type: Double");
+		hs.put("daily_percentage_variation","Contiene le variazioni percentuali giornaliere dei valori della valuta nel perido scelto.   Type: Vector<Double>");
+
 		return hs;
 	}
 	

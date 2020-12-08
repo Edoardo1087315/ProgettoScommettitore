@@ -16,7 +16,7 @@ public class DateService{
 	static Date to_date;
 	
 
-	public static void dateVerify(String from, String to) throws ParseException {
+	public static void dateVerify(String from, String to) throws ParseException{
 
 		if (from.equals("") && to.equals("")) {
 			to = today();
