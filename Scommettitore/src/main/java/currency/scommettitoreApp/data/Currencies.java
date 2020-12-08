@@ -1,4 +1,4 @@
-package currency.scommettitoreApp.currencylayer;
+package currency.scommettitoreApp.data;
 
 import java.io.IOException;
 import java.text.ParseException;

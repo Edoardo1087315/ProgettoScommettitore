@@ -31,7 +31,7 @@ public class Controller {
 	PrincipalService service;
 
 	@RequestMapping(value = "/currencies", method = RequestMethod.GET)
-	public ResponseEntity<Object> getValute() throws MalformedURLException, IOException, UrlException {
+	public ResponseEntity<Object> getCurrencies() throws MalformedURLException, IOException, UrlException {
 		return new ResponseEntity<>(service.getCurrencies(), HttpStatus.OK);
 	}
 
@@ -41,14 +41,14 @@ public class Controller {
 	}
 
 	@RequestMapping(value = "/currencies/statistics", method = RequestMethod.GET)
-	public ResponseEntity<Object> getStatistiche(@RequestParam(name = "from", defaultValue = "") String from,
+	public ResponseEntity<Object> getStatistics(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DateException, java.text.ParseException {
 		return new ResponseEntity<>(service.getStatistics(from, to,currencies), HttpStatus.OK);
 
 	}
 
 	@RequestMapping(value = "/currencies/filters", method = RequestMethod.POST)
-	public ResponseEntity<Object> getFiltri(@RequestParam(name = "from", defaultValue = "") String from,
+	public ResponseEntity<Object> getFiltered(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filtro)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
 			SecurityException, InstantiationException, UrlException, DateException, JsonMappingException, JsonProcessingException, java.text.ParseException {
@@ -56,7 +56,7 @@ public class Controller {
 	}
 
 	@RequestMapping(value = "/currencies/chart", method = RequestMethod.GET)
-	public ResponseEntity<byte[]> getGrafico(@RequestParam(name = "from", defaultValue = "") String from,
+	public ResponseEntity<byte[]> getChart(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "EUR") String currencies) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK)

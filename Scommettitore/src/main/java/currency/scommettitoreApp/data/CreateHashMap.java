@@ -1,4 +1,4 @@
-package currency.scommettitoreApp.currencylayer;
+package currency.scommettitoreApp.data;
 
 import java.util.HashMap;
 import java.util.Iterator;

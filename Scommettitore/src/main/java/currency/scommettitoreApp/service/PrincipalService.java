@@ -9,8 +9,8 @@ import java.util.Vector;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-import currency.scommettitoreApp.currencylayer.CreateHashMap;
-import currency.scommettitoreApp.currencylayer.Currencies;
+import currency.scommettitoreApp.data.CreateHashMap;
+import currency.scommettitoreApp.data.Currencies;
 import currency.scommettitoreApp.exceptions.DateException;
 import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.filtersstatistics.BodyParsing;
