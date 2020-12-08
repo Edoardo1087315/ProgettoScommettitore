@@ -1,4 +1,4 @@
-package currency.scommettitoreApp.Plot;
+package currency.scommettitoreApp.plot;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -20,19 +20,19 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 
-public class Grafico {
+public class Chart {
 	
 	static final int DAY = (24*60*60*1000);
 
-   public static byte[] GraficoLineare(HashMap<String,ModelloValuta> hs2, String from, String to) throws Exception {
+   public static byte[] lineChart(HashMap<String,CurrencyModel> hs2, String from, String to) throws Exception {
       DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-      Vector<String> date = DataService.DateRange(from, to);
-      long periodo = DataService.getPeriodo(from,to);
+      Vector<String> date = DateService.dateRange(from, to);
+      long period = DateService.getPeriod(from,to);
       Set<String> x = hs2.keySet(); 
       for(String y : x) {
-    	  Iterator<Double> it = hs2.get(y).getValori().iterator();
+    	  Iterator<Double> it = hs2.get(y).getValues().iterator();
     	  Iterator<String> it2 = date.iterator();
-     	  for(int i = 0; i<=periodo; i++) {
+     	  for(int i = 0; i<=period; i++) {
     	 line_chart_dataset.addValue(it.next(), y, it2.next());
     	 }
       }

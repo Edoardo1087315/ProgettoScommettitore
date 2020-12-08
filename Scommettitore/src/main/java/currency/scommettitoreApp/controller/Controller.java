@@ -19,7 +19,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.sun.el.parser.ParseException;
 
-import currency.scommettitoreApp.exceptions.DataException;
+import currency.scommettitoreApp.exceptions.DateException;
 import currency.scommettitoreApp.exceptions.ExceptionErr;
 import currency.scommettitoreApp.exceptions.GenericError;
 import currency.scommettitoreApp.exceptions.UrlException;
@@ -30,38 +30,38 @@ public class Controller {
 	@Autowired
 	PrincipalService service;
 
-	@RequestMapping(value = "/valute", method = RequestMethod.GET)
+	@RequestMapping(value = "/currencies", method = RequestMethod.GET)
 	public ResponseEntity<Object> getValute() throws MalformedURLException, IOException, UrlException {
-		return new ResponseEntity<>(service.GetValute(), HttpStatus.OK);
+		return new ResponseEntity<>(service.getCurrencies(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/metadata", method = RequestMethod.GET)
 	public ResponseEntity<Object> getMetadata() {
-		return new ResponseEntity<>(service.GetMetadata(), HttpStatus.OK);
+		return new ResponseEntity<>(service.getMetadata(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/valute/statistiche", method = RequestMethod.GET)
+	@RequestMapping(value = "/currencies/statistics", method = RequestMethod.GET)
 	public ResponseEntity<Object> getStatistiche(@RequestParam(name = "from", defaultValue = "") String from,
-			@RequestParam(name = "to", defaultValue = "") String to,@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DataException {
-		return new ResponseEntity<>(service.GetStatistiche(from, to,currencies), HttpStatus.OK);
+			@RequestParam(name = "to", defaultValue = "") String to,@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DateException, java.text.ParseException {
+		return new ResponseEntity<>(service.getStatistics(from, to,currencies), HttpStatus.OK);
 
 	}
 
-	@RequestMapping(value = "/valute/filtri", method = RequestMethod.POST)
+	@RequestMapping(value = "/currencies/filters", method = RequestMethod.POST)
 	public ResponseEntity<Object> getFiltri(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filtro)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
-			SecurityException, InstantiationException, UrlException, DataException, JsonMappingException, JsonProcessingException {
-		return new ResponseEntity<>(service.GetCostanti(from, to, filtro,currencies), HttpStatus.OK);
+			SecurityException, InstantiationException, UrlException, DateException, JsonMappingException, JsonProcessingException, java.text.ParseException {
+		return new ResponseEntity<>(service.getFiltered(from, to, filtro,currencies), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/valute/grafico", method = RequestMethod.GET)
+	@RequestMapping(value = "/currencies/chart", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getGrafico(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to, @RequestParam(name = "currencies", defaultValue = "EUR") String currencies) throws Exception {
 		
 		return ResponseEntity.status(HttpStatus.OK)
 			.contentType(org.springframework.http.MediaType.IMAGE_PNG)
-            .body(service.GetGrafico(from, to, currencies));
+            .body(service.getChart(from, to, currencies));
 	}
             
 	@ExceptionHandler(NoSuchMethodException.class)
@@ -82,7 +82,7 @@ public class Controller {
 	
 	@ExceptionHandler(GenericError.class)
 	public ResponseEntity<Object> handleGenericError(GenericError e){
-		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName() , e.GetMessaggio());
+		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName() , e.getMessage());
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
 

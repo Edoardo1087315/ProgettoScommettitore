@@ -1,8 +1,8 @@
-package currency.scommettitoreApp.currencylayer;
+package currency.scommettitoreApp.model;
 
 import java.util.HashMap;
 
-public class ApiParsing {
+public class ApiModel {
 	
 	public Boolean success;
 	

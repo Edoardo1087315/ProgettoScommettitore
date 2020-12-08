@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Metadata {
 	
-	public static HashMap<String,String> GetMetadata(){
+	public static HashMap<String,String> getMetadata(){
 		
 		HashMap<String,String> hs = new HashMap<String,String>();
 		

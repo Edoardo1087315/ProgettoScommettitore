@@ -1,12 +1,14 @@
 package currency.scommettitoreApp.exceptions;
 
-public class DataException extends GenericError {
+public class DateException extends GenericError {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public String GetMessaggio() {
+	public String getMessage() {
 		return "La data d'inizio eccede o è uguale alla data di fine";
 	}
 }
+
+
