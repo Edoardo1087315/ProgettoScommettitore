@@ -1,10 +1,10 @@
 package currency.scommettitoreApp.currencylayer;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.Vector;				
 
 import currency.scommettitoreApp.exceptions.UrlException;
-import currency.scommettitoreApp.service.Data;
+import currency.scommettitoreApp.service.DataService;
 import currency.scommettitoreApp.service.UrlService;
 
 public class Valute {
@@ -14,7 +14,7 @@ public class Valute {
 	ApiParsing p = new ApiParsing();
 		
 	try {
-		p = Currencylayer.GetJsonAndDecode(UrlService.geturl(Data.DataOdierna(), ""));
+		p = Currencylayer.GetJsonAndDecode(UrlService.geturl(DataService.DataOdierna(), ""));
 	} catch (IOException e) {
 		e.printStackTrace();
 	}

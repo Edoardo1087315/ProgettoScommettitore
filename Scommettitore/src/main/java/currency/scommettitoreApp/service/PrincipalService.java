@@ -13,10 +13,11 @@ import currency.scommettitoreApp.currencylayer.Valute;
 import currency.scommettitoreApp.exceptions.DataException;
 import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.filtriEstatistiche.Filtri;
-import currency.scommettitoreApp.model.Ausiliare;
+import currency.scommettitoreApp.model.ValuteCostanti;
 import currency.scommettitoreApp.model.HashMapModello;
 import currency.scommettitoreApp.model.Metadata;
 import currency.scommettitoreApp.model.ModelloValuta;
+import currency.scommettitoreApp.model.ValuteCostanti;
 
 @org.springframework.stereotype.Service
 public class PrincipalService {
@@ -31,14 +32,14 @@ public class PrincipalService {
 	}
 	
 	public HashMap<String,ModelloValuta> GetStatistiche(String from, String to,String currencies) throws UrlException, DataException{
-		return HashMapModello.HashMapValori(Data.CiclaDate(from,to,currencies));	
+		return HashMapModello.HashMapValori(DataService.CiclaDate(from,to,currencies));	
 	}
 	
-	public ArrayList<Ausiliare> GetCostanti(String from, String to, String filtro, String currencies) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException, UrlException, DataException, JsonMappingException, JsonProcessingException{
-		 return Filtri.filtri(filtro,HashMapModello.HashMapValori(Data.CiclaDate(from, to,currencies)));
+	public ArrayList<ValuteCostanti> GetCostanti(String from, String to, String filtro, String currencies) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException, UrlException, DataException, JsonMappingException, JsonProcessingException{
+		 return Filtri.filtri(filtro,HashMapModello.HashMapValori(DataService.CiclaDate(from, to,currencies)));
 	}
 	
 	public byte[] GetGrafico(String from, String to, String currencies) throws Exception {
-		return Grafico.GraficoLineare(HashMapModello.HashMapValori(Data.CiclaDate(from, to, currencies)), from, to);
+		return Grafico.GraficoLineare(HashMapModello.HashMapValori(DataService.CiclaDate(from, to, currencies)), from, to);
 	}
 }

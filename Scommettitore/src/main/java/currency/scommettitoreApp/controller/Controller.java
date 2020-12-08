@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.sun.el.parser.ParseException;
 
 import currency.scommettitoreApp.exceptions.DataException;
 import currency.scommettitoreApp.exceptions.ExceptionErr;
@@ -71,6 +72,11 @@ public class Controller {
 	@ExceptionHandler(JsonProcessingException.class)
 	public ResponseEntity<Object> handleJsonProcessingException(JsonProcessingException e){
 		ExceptionErr error = new ExceptionErr(new Date(),HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),"Controlla di aver scritto correttamente il body");
+		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(ParseException.class)
+	public ResponseEntity<Object> handleParseException(ParseException e){
+		ExceptionErr error = new ExceptionErr(new Date(),HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),"Controlla di aver immesso le date come richiesto");
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 	}
 	

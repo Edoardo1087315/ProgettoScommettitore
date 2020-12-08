@@ -12,7 +12,7 @@ import currency.scommettitoreApp.currencylayer.Currencylayer;
 import currency.scommettitoreApp.exceptions.DataException;
 import currency.scommettitoreApp.exceptions.UrlException;
 
-public class Data {
+public class DataService{
 
 	static final int DAY = (24 * 60 * 60 * 1000);
 
@@ -23,10 +23,10 @@ public class Data {
 	public static void DateVerify(String from, String to) {
 
 		if (from.equals("") && to.equals("")) {
-			to = Data.DataOdierna();
-			from = Data.DataIeri();
+			to = DataOdierna();
+			from = DataIeri();
 		} else if (to.equals("")) {
-			to = Data.DataOdierna();
+			to = DataOdierna();
 		}
 		try {
 			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(from);
@@ -56,7 +56,7 @@ public class Data {
 
 		Vector<ApiParsing> p = new Vector<ApiParsing>();
 
-		Vector<String> giorni = Data.DateRange(from, to);
+		Vector<String> giorni = DateRange(from, to);
 		for (String x : giorni) {
 			try {
 				p.add(Currencylayer.GetJsonAndDecode(UrlService.geturl(x, currencies)));

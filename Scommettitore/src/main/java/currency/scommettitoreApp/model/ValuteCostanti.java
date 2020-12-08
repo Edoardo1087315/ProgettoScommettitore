@@ -1,6 +1,6 @@
 package currency.scommettitoreApp.model;
 
-public class Ausiliare {
+public class ValuteCostanti {
 	    private String valuta;
 	    private Double deviazione_standard;
 		
