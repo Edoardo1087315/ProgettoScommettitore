@@ -23,8 +23,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Chart {
 
-	static final int DAY = (24 * 60 * 60 * 1000);
-
 	public static byte[] lineChart(HashMap<String, CurrencyModel> hs2, String from, String to)
 			throws DateException, ParseException {
 		DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();

@@ -52,11 +52,11 @@ public class Controller {
 	@RequestMapping(value = "/currencies/filters", method = RequestMethod.POST)
 	public ResponseEntity<Object> getFiltered(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,
-			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filtro)
+			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filter)
 			throws JsonMappingException, JsonProcessingException, NoSuchMethodException, SecurityException,
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException, MalformedURLException,
 			UrlException, DateException, IOException, java.text.ParseException {
-		return new ResponseEntity<>(service.getFiltered(from, to, filtro, currencies), HttpStatus.OK);
+		return new ResponseEntity<>(service.getFiltered(from, to, filter, currencies), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/currencies/chart", method = RequestMethod.GET)

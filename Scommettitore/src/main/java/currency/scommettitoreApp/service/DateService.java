@@ -10,10 +10,10 @@ import currency.scommettitoreApp.exceptions.DateException;
 
 public class DateService{
 
-	static final int DAY = (24 * 60 * 60 * 1000);
+	private static final int DAY = (24 * 60 * 60 * 1000);
 
-	static Date from_date;
-	static Date to_date;
+	private static Date from_date;
+	private static Date to_date;
 	
 
 	public static void dateVerify(String from, String to) throws ParseException{
