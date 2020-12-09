@@ -9,7 +9,7 @@ import currency.scommettitoreApp.model.CurrencyModel;
 
 public class Filter {
 
-	public ArrayList<ConstantCurrencyModel> filter(HashMap<String, CurrencyModel> hs) {
+	public static ArrayList<ConstantCurrencyModel> filter(HashMap<String, CurrencyModel> hs) {
 
 		ArrayList<ConstantCurrencyModel> list = new ArrayList<ConstantCurrencyModel>();
 		ConstantCurrencyModel e;
@@ -22,7 +22,7 @@ public class Filter {
 		return list;
 	}
 
-	public ArrayList<ConstantCurrencyModel> best(HashMap<String, CurrencyModel> hs, Integer amount) {
+	public static ArrayList<ConstantCurrencyModel> best(HashMap<String, CurrencyModel> hs, Integer amount) {
 		ArrayList<ConstantCurrencyModel> list = new ArrayList<ConstantCurrencyModel>();
 		list = filter(hs);
 		list.sort(Comparator.comparing(ConstantCurrencyModel::getStandard_deviation));
@@ -30,7 +30,7 @@ public class Filter {
 
 	}
 
-	public ArrayList<ConstantCurrencyModel> worst(HashMap<String, CurrencyModel> hs, Integer amount) {
+	public static ArrayList<ConstantCurrencyModel> worst(HashMap<String, CurrencyModel> hs, Integer amount) {
 		ArrayList<ConstantCurrencyModel> list = new ArrayList<ConstantCurrencyModel>();
 		list = filter(hs);
 		list.sort(Comparator.comparing(ConstantCurrencyModel::getStandard_deviation).reversed());

@@ -1,6 +1,7 @@
 package currency.scommettitoreApp.service;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
@@ -26,15 +27,15 @@ public class PrincipalService {
 		return Metadata.getMetadata();
 	}
 	
-	public HashMap<String,CurrencyModel> getStatistics(String from, String to,String currencies) throws UrlException, DateException, IOException {
+	public HashMap<String,CurrencyModel> getStatistics(String from, String to,String currencies) throws UrlException, DateException, IOException, ParseException {
 		return CreateHashMap.createHashMap(Currencies.vectorApiModel(from,to,currencies));	
 	}
 	
-	public ArrayList<ConstantCurrencyModel> getFiltered(String from, String to, String filter, String currencies) throws NoSuchMethodException, UrlException, DateException, IOException {
+	public ArrayList<ConstantCurrencyModel> getFiltered(String from, String to, String filter, String currencies) throws NoSuchMethodException, UrlException, DateException, IOException, ParseException {
 		 return BodyParsing.bodyParsing(filter,CreateHashMap.createHashMap(Currencies.vectorApiModel(from, to,currencies)));
 	}
 	
-	public byte[] getChart(String from, String to, String currencies) throws DateException, UrlException, IOException{
+	public byte[] getChart(String from, String to, String currencies) throws DateException, UrlException, IOException, ParseException{
 		return Chart.lineChart(CreateHashMap.createHashMap(Currencies.vectorApiModel(from, to, currencies)), from, to);
 	}
 }

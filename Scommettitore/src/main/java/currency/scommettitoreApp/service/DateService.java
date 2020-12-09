@@ -15,7 +15,7 @@ public class DateService {
 	private static Date from_date;
 	private static Date to_date;
 
-	public static void dateVerify(String from, String to) {
+	public static void dateVerify(String from, String to) throws ParseException {
 
 		if (from.equals("") && to.equals("")) {
 			to = today();
@@ -23,17 +23,12 @@ public class DateService {
 		} else if (to.equals("")) {
 			to = today();
 		}
-		try {
 			from_date = new SimpleDateFormat("yyyy-MM-dd").parse(from);
 			to_date = new SimpleDateFormat("yyyy-MM-dd").parse(to);
-		} catch (ParseException e) {
-			e.printStackTrace();
 		}
-		
+	
 
-	}
-
-	public static Vector<String> dateRange(String from, String to) throws DateException{
+	public static Vector<String> dateRange(String from, String to) throws DateException, ParseException{
 
 		Long period = getPeriod(from, to);
 
@@ -56,7 +51,7 @@ public class DateService {
 		return df.format(today.getTime() - DAY);
 	}
 
-	public static long getPeriod(String from, String to) throws DateException {
+	public static long getPeriod(String from, String to) throws DateException, ParseException {
 		dateVerify(from, to);
 		if (to_date.getTime() - from_date.getTime() <= 0) {
 			throw new DateException();

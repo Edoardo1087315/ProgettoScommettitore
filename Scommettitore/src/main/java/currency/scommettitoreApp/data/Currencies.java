@@ -1,6 +1,7 @@
 package currency.scommettitoreApp.data;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Vector;
 
 import currency.scommettitoreApp.exceptions.DateException;
@@ -22,7 +23,7 @@ public class Currencies {
 	}
 
 	public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies)
-			throws UrlException, IOException, DateException{
+			throws UrlException, IOException, DateException, ParseException{
 
 		Vector<ApiModel> p = new Vector<ApiModel>();
 

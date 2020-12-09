@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.lang.reflect.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import currency.scommettitoreApp.model.ConstantCurrencyModel;
@@ -13,17 +14,13 @@ import currency.scommettitoreApp.model.CurrencyModel;
 
 public class BodyParsing {
 
-	public static ArrayList<ConstantCurrencyModel> bodyParsing(String filter, HashMap<String, CurrencyModel> hs) throws NoSuchMethodException {
+	public static ArrayList<ConstantCurrencyModel> bodyParsing(String filter, HashMap<String, CurrencyModel> hs) throws NoSuchMethodException, JsonMappingException, JsonProcessingException {
 
 		HashMap<String, Integer> body = new HashMap<String, Integer>();
 		ArrayList<ConstantCurrencyModel> ls = new ArrayList<ConstantCurrencyModel>();
 		ObjectMapper obj = new ObjectMapper();
 
-		try {
 			body = obj.readValue(filter, HashMap.class);
-		} catch (JsonProcessingException e1) {
-			e1.printStackTrace();
-		}
 
 		for (String x : body.keySet()) {
 			try {

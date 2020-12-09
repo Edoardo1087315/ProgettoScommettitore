@@ -1,6 +1,7 @@
 package currency.scommettitoreApp.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.sun.el.parser.ParseException;
+
 
 import currency.scommettitoreApp.exceptions.DateException;
 import currency.scommettitoreApp.exceptions.ExceptionErr;
@@ -40,7 +41,7 @@ public class Controller {
 	@RequestMapping(value = "/currencies/statistics", method = RequestMethod.GET)
 	public ResponseEntity<Object> getStatistics(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,
-			@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DateException, IOException {
+			@RequestParam(name = "currencies", defaultValue = "") String currencies) throws UrlException, DateException, IOException, ParseException {
 		return new ResponseEntity<>(service.getStatistics(from, to, currencies), HttpStatus.OK);
 
 	}
@@ -48,7 +49,7 @@ public class Controller {
 	@RequestMapping(value = "/currencies/filters", method = RequestMethod.POST)
 	public ResponseEntity<Object> getFiltered(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,
-			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filter) throws NoSuchMethodException, UrlException, DateException, IOException {
+			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filter) throws NoSuchMethodException, UrlException, DateException, IOException, ParseException {
 		return new ResponseEntity<>(service.getFiltered(from, to, filter, currencies), HttpStatus.OK);
 	}
 
@@ -56,7 +57,7 @@ public class Controller {
 	public ResponseEntity<byte[]> getChart(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,
 			@RequestParam(name = "currencies", defaultValue = "EUR") String currencies)
-			throws UrlException, DateException, IOException{
+			throws UrlException, DateException, IOException, ParseException{
 
 		return ResponseEntity.status(HttpStatus.OK).contentType(org.springframework.http.MediaType.IMAGE_PNG)
 				.body(service.getChart(from, to, currencies));
