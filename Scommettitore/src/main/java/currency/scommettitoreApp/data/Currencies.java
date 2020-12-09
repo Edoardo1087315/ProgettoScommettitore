@@ -1,8 +1,6 @@
 package currency.scommettitoreApp.data;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.text.ParseException;
 import java.util.Vector;
 
 import currency.scommettitoreApp.exceptions.DateException;
@@ -12,7 +10,7 @@ import currency.scommettitoreApp.service.*;
 
 public class Currencies {
 
-	public static Vector<String> getCurrencies() throws MalformedURLException, UrlException, IOException {
+	public static Vector<String> getCurrencies() throws UrlException, IOException {
 
 		ApiModel p = new ApiModel();
 
@@ -24,7 +22,7 @@ public class Currencies {
 	}
 
 	public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies)
-			throws MalformedURLException, UrlException, IOException, DateException, ParseException {
+			throws UrlException, IOException, DateException{
 
 		Vector<ApiModel> p = new Vector<ApiModel>();
 

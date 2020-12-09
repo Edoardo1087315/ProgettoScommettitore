@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -15,7 +14,7 @@ import currency.scommettitoreApp.model.ApiModel;
 
 public class Currencylayer {
 
-	public static ApiModel getJsonAndDecode(String url) throws MalformedURLException, IOException, UrlException {
+	public static ApiModel getJsonAndDecode(String url) throws UrlException,IOException {
 
 		ApiModel p = new ApiModel();
 		URLConnection openConnection = new URL(url).openConnection();

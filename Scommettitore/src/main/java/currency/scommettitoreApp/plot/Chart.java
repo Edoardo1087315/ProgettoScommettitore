@@ -2,7 +2,6 @@ package currency.scommettitoreApp.plot;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -23,8 +22,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Chart {
 
-	public static byte[] lineChart(HashMap<String, CurrencyModel> hs, String from, String to)
-			throws DateException, ParseException {
+	public static byte[] lineChart(HashMap<String, CurrencyModel> hs, String from, String to) throws DateException{
 		DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
 		Vector<String> date = DateService.dateRange(from, to);
 		long period = DateService.getPeriod(from, to);
