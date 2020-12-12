@@ -2,6 +2,7 @@ package currency.scommettitoreApp.data;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Set;
 import java.util.Vector;
 
 import currency.scommettitoreApp.exceptions.DateException;
@@ -11,15 +12,13 @@ import currency.scommettitoreApp.service.*;
 
 public class Currencies {
 
-	public static Vector<String> getCurrencies() throws UrlException, IOException {
+	public static Set<String> getCurrencies() throws UrlException, IOException {
 
 		ApiModel p = new ApiModel();
 
 		p = Currencylayer.getJsonAndDecode(UrlService.getUrl(DateService.today(), ""));
-
-		Vector<String> vet = new Vector<String>();
-		vet.addAll(p.quotes.keySet());
-		return vet;
+		
+		return p.quotes.keySet();
 	}
 
 	public static Vector<ApiModel> vectorApiModel(String from, String to, String currencies)

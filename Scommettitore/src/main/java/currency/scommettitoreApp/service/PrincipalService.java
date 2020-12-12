@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Vector;
+import java.util.Set;
 
 import currency.scommettitoreApp.data.CreateHashMap;
 import currency.scommettitoreApp.data.Currencies;
@@ -20,7 +20,7 @@ import currency.scommettitoreApp.model.CurrencyModel;
 @org.springframework.stereotype.Service
 public class PrincipalService {
 
-	public Vector<String> getCurrencies() throws UrlException, IOException {
+	public Set<String> getCurrencies() throws UrlException, IOException {
 		return Currencies.getCurrencies();
 	}
 
