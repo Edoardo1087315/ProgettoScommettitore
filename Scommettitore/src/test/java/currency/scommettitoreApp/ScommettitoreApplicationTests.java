@@ -55,18 +55,21 @@ class ScommettitoreApplicationTests {
 		v1.add(3.0);
 		v1.add(2.0);
 		v2.add(3.0);
-		v2.add(7.0);
+		v2.add(6.0);
 		
-		m1 = new CurrencyModel(v1, 7.0,8.0,2.0,5.0,v2);
-		m2 = new CurrencyModel(v2, 5.0,5.0,5.0,5.0,v2);
+		m1 = new CurrencyModel(v1);
+		m2 = new CurrencyModel(v2);
+		
+		m1.setStatistics();
+		m2.setStatistics();
 		
 		hs.put("USDEUR", m1);
 		hs.put("USDBIF", m2);
 		
 		c1.setCurrency("USDEUR");
-		c1.setStandard_deviation(2.0);
+		c1.setStandard_deviation(0.5);
 		c2.setCurrency("USDBIF");
-		c2.setStandard_deviation(5.0);
+		c2.setStandard_deviation(1.5);
 		
 		f.add(c1);
 		f.add(c2);
@@ -81,10 +84,10 @@ class ScommettitoreApplicationTests {
 	@Test
 	void testStatistics() {
 		assertEquals(keys, hs.keySet());
-		assertEquals(7.0, hs.get("USDEUR").getAverage());
-		assertEquals(5.0, hs.get("USDBIF").getAverage());
-		assertEquals(8.0, hs.get("USDEUR").getVariance());
-		assertEquals(5.0, hs.get("USDBIF").getVariance());
+		assertEquals(2.5, hs.get("USDEUR").getAverage());
+		assertEquals(4.5, hs.get("USDBIF").getAverage());
+		assertEquals(0.25, hs.get("USDEUR").getVariance());
+		assertEquals(2.25, hs.get("USDBIF").getVariance());
 		assertEquals(v1, hs.get("USDEUR").getValues());
 		assertEquals(v2, hs.get("USDBIF").getValues());
 	}

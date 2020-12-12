@@ -34,7 +34,7 @@ public class Chart {
 			for (int i = 0; i <= period; i++) {
 				line_chart_dataset.addValue(it.next(), y, it2.next());
 			}
-		}
+		} 
 
 		JFreeChart lineChartObject = ChartFactory.createLineChart("Variazioni", "Date", "Valori", line_chart_dataset,
 				PlotOrientation.VERTICAL, true, true, false);

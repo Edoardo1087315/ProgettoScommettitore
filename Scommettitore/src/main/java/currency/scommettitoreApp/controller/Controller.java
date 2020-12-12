@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-
+import currency.scommettitoreApp.exceptions.AmountException;
 import currency.scommettitoreApp.exceptions.DateException;
 import currency.scommettitoreApp.exceptions.ExceptionErr;
 import currency.scommettitoreApp.exceptions.GenericError;
@@ -49,7 +49,7 @@ public class Controller {
 	@RequestMapping(value = "/currencies/filters", method = RequestMethod.POST)
 	public ResponseEntity<Object> getFiltered(@RequestParam(name = "from", defaultValue = "") String from,
 			@RequestParam(name = "to", defaultValue = "") String to,
-			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filter) throws NoSuchMethodException, UrlException, DateException, IOException, ParseException {
+			@RequestParam(name = "currencies", defaultValue = "") String currencies, @RequestBody String filter) throws NoSuchMethodException, UrlException, DateException, IOException, ParseException, AmountException {
 		return new ResponseEntity<>(service.getFiltered(from, to, filter, currencies), HttpStatus.OK);
 	}
 

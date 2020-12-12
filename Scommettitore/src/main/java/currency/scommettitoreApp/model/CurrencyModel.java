@@ -2,6 +2,8 @@ package currency.scommettitoreApp.model;
 
 import java.util.Vector;
 
+import currency.scommettitoreApp.filtersstatistics.Statistics;
+
 public class CurrencyModel {
 
 	private Vector<Double> values;
@@ -16,15 +18,16 @@ public class CurrencyModel {
 
 	private Vector<Double> daily_percentage_variation;
 
-	public CurrencyModel(Vector<Double> values, Double average, Double variance, Double standard_deviation,
-			Double percentage_variation, Vector<Double> daily_percentage_variation) {
-		super();
-		this.values = values;
-		this.average = average;
-		this.variance = variance;
-		this.standard_deviation = standard_deviation;
-		this.percentage_variation = percentage_variation;
-		this.daily_percentage_variation = daily_percentage_variation;
+	public CurrencyModel(Vector<Double> vet) {
+		values = vet;
+	}
+	
+	public void setStatistics() {
+		average = Statistics.average(this.values);
+		variance = Statistics.variance(this.values);
+		standard_deviation = Statistics.standardDeviation(this.values);
+		percentage_variation = Statistics.percentageVariation(this.values);
+		daily_percentage_variation = Statistics.dailyPercentageVariation(this.values);
 	}
 
 	public Vector<Double> getValues() {

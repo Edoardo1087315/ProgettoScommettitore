@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import currency.scommettitoreApp.data.CreateHashMap;
 import currency.scommettitoreApp.data.Currencies;
+import currency.scommettitoreApp.exceptions.AmountException;
 import currency.scommettitoreApp.exceptions.DateException;
 import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.filtersstatistics.BodyParsing;
@@ -28,11 +29,11 @@ public class PrincipalService {
 	}
 	
 	public HashMap<String,CurrencyModel> getStatistics(String from, String to,String currencies) throws UrlException, DateException, IOException, ParseException {
-		return CreateHashMap.createHashMap(Currencies.vectorApiModel(from,to,currencies));	
+		return CreateHashMap.setStatistics(Currencies.vectorApiModel(from,to,currencies));	
 	}
 	
-	public ArrayList<ConstantCurrencyModel> getFiltered(String from, String to, String filter, String currencies) throws NoSuchMethodException, UrlException, DateException, IOException, ParseException {
-		 return BodyParsing.bodyParsing(filter,CreateHashMap.createHashMap(Currencies.vectorApiModel(from, to,currencies)));
+	public ArrayList<ConstantCurrencyModel> getFiltered(String from, String to, String filter, String currencies) throws NoSuchMethodException, UrlException, DateException, IOException, ParseException, AmountException {
+		 return BodyParsing.bodyParsing(filter,CreateHashMap.setStatistics(Currencies.vectorApiModel(from, to,currencies)));
 	}
 	
 	public byte[] getChart(String from, String to, String currencies) throws DateException, UrlException, IOException, ParseException{

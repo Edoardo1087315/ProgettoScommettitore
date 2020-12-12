@@ -9,12 +9,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import currency.scommettitoreApp.exceptions.AmountException;
 import currency.scommettitoreApp.model.ConstantCurrencyModel;
 import currency.scommettitoreApp.model.CurrencyModel;
 
 public class BodyParsing {
 
-	public static ArrayList<ConstantCurrencyModel> bodyParsing(String filter, HashMap<String, CurrencyModel> hs) throws NoSuchMethodException, JsonMappingException, JsonProcessingException {
+	public static ArrayList<ConstantCurrencyModel> bodyParsing(String filter, HashMap<String, CurrencyModel> hs) throws NoSuchMethodException, JsonMappingException, JsonProcessingException, AmountException {
 
 		HashMap<String, Integer> body = new HashMap<String, Integer>();
 		ArrayList<ConstantCurrencyModel> ls = new ArrayList<ConstantCurrencyModel>();
@@ -26,6 +27,7 @@ public class BodyParsing {
 			try {
 				Class<?> filterClass = Class.forName("currency.scommettitoreApp.filtersstatistics.Filter");
 				Method method = filterClass.getMethod(x, HashMap.class, Integer.class);
+				if(hs.keySet().size()<body.get(x)) throw new AmountException();
 				try {
 					ls.addAll((ArrayList<ConstantCurrencyModel>) method.invoke(filterClass.newInstance(), hs, body.get(x)));
 				} catch (IllegalAccessException | InvocationTargetException e) {
