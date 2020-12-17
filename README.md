@@ -34,7 +34,7 @@ GET | /currencies/chart | from, to, currencies | restituisce l'andamento della v
 alla rotta /currencies/filters la richiesta dovrà essere di tipo POST e andrà inserito il body in formato JSON
 per specificare il tipo di filtro richiesto.
 
-### i parametri
+## i parametri
 i parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
 
 * **from & to**
