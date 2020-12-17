@@ -183,8 +183,8 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 ## Autori
 
-* **Edoardo Bilancia**
-* **Emanuele Biccheri**
+* **Edoardo Bilancia** - [GitHub](https://github.com/Edoardo1087315)
+* **Emanuele Biccheri** - [GitHub](https://github.com/Emanuele1087650)
 
 #### Suddivisione del lavoro
 
