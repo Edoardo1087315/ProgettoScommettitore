@@ -37,7 +37,7 @@ per specificare il tipo di filtro richiesto.
 ### i parametri
 i parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
 
-- **from & to**
+* **from & to**
 
 in particolare i parametri from & to permettono di specificare il periodo sul quale ottenere le informazioni e vanno inseriti 
 
@@ -48,7 +48,7 @@ secondo la seguente sintassi : ```yyyy-mm-dd ```
   - se l'utente non inserisce la data come da sintassi verrà restituito un errore.
   - se il prametro "from" contiene una data maggiore o uguale di quella presente nel to viene restituito un errore.
 
-- **currencies**
+* **currencies**
 
 il parametro "currencies" permette di filtrare le valute e di considerare le informazioni relative solo a quelle inserite.
 E' possible specificare più valute elencandole separate da virogla.
