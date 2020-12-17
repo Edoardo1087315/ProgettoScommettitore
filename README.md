@@ -72,13 +72,16 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 
 ## Statistiche
 
-Le statistiche restituite dall'applicativo sono le seguenti e vengono calcolate al momento della richiesta da parte dell'utente  :
+Le statistiche restituite dall'applicativo vengono calcolate al momento della richiesta da parte dell'utente.
+Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul periodo vengono restituite le seguenti statistiche per ogni valuta:
 
 * Media, *valore medio della valuta sul periodo indicato*
 * Varianza, *valore della varianza della valuta sul periodo indicato*
 * Deviazione standard,  *valore della deviazione standard della valuta sul periodo indicato (indice di volatilità)*
 * Variazione percentuale,  *valore della varizione percentuale della valuta sul periodo indicato*
 * Variazione percentuale giornaliera,  *valori della variazioni percentuali giornaliere della valuta sul periodo indicato*
+
+in particolare i valori restituiti saranno ordinati dal meno recente al più recente 
 
 ## Filtri
 
@@ -88,12 +91,13 @@ alla rotta /currencies/filters è richiesto all'utente di specificare un body se
 dove il campo "metodo" deve essere: 
 * "best", *se l'utente vuole ottenere le più costanti sul periodo*
 * "worst", *se l'utente vuole ottenere le meno costanti sul periodo* 
+
 mentre il campo "valore" corrisponde alla quantità di valute che l'utente vuole filtrare.
 oltre al nome delle valute l'applicativo restituisce l'indice di volatilità relativo ad ogni valuta filtrata, utile in secondo luogo per delle analisi di mercato.
 
 se l'utente inserisce i due filtri contemporaneamente otterrà una lista unica in cui saranno presenti le valute filtrate nell'ordine con cui sono stati indicati nel body.
 la sintassi per utilizzare i due filtri contemporaneamente è:
-```{"metodo" : valore, "metodo : valore}``` 
+```{"metodo" : valore, "metodo" : valore}``` 
 
 viene restituito un errore nei seguenti casi:
 > - se l'utente inserisce un metodo non presente.
@@ -101,3 +105,10 @@ viene restituito un errore nei seguenti casi:
 > - se l'utente inserisce un valore maggiore di quello delle valute richieste.
 > - se la sintassi non è corretta.
 
+## Grafico 
+
+un ulteriore servizio fornito dall'applicativo è la possibilità di consultare un grafico relativo all'andamento della valuta sul periodo
+l'utente può scegliere quale valuta visualizzare nel grafico, potendone scegliere anche più di una.
+nonostante ciò è consigliato inserire una valuta per volta affinchè la risoluzione del grafico risulti sufficientemente valida.
+
+# Sviluppo
