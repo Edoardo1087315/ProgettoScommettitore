@@ -48,7 +48,7 @@ secondo la seguente sintassi : ```yyyy-mm-dd ```
 **currencies**
 
 il parametro "currencies" permette di filtrare le valute e di considerare le informazioni relative solo a quelle inserite.
-E` possible specificare più valute elencandole separate da virogla.
+E' possible specificare più valute elencandole separate da virogla.
 
 un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD``` 
 
