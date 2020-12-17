@@ -26,6 +26,6 @@ Tipo | path | parametri | informazioni restituite
 -----|------|-----------|--------------------------------------
 GET | /currencies | - | restituisce l'elenco delle valute disponibili
 GET | /currencies/metadata | - | restituisce i metadata
-GET | /currencies/statistics | from, to, currencies | restituisce le statistiche relative alle valute richiete nel periodo inserito
-POST | /currencies/filters | from, to, currencies, body | restituisce le valute filtrate come richiesto
-GET | /currencies/chart | from, to, currencies | restituisce l'andamento della valuta sul periodo attraverso un grafico
+GET | /currencies/statistics | from, to, currencies | restituisce le statistiche relative alle valute richiete 
+POST | /currencies/filters | from, to, currencies | restituisce le valute filtrate come richiesto
+GET | /currencies/chart | from, to, currencies | restituisce l'andamento della valuta sul periodo mediante un grafico
