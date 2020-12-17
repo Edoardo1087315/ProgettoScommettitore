@@ -20,7 +20,7 @@ public class AmountException extends GenericError {
 	
 	@Override
 	public String getMessage() {
-		return "hai richiesto una quantità di valute maggiori di quelle presenti";
+		return "Hai inserito un valore non positivo oppure hai richiesto una quantità di valute maggiori di quelle presenti";
 	}
 
 }

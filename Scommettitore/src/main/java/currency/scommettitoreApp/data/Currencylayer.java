@@ -22,7 +22,7 @@ public class Currencylayer {
 
 	/**
 	 * Metodo che fa la connessione al sito e il parsing dei dati
-	 * @param url url generato a cui accedere
+	 * @param url url generato a cui connettersi
 	 * @return un oggetto ApiModel
 	 * @throws UrlException
 	 * @throws IOException
@@ -47,8 +47,8 @@ public class Currencylayer {
 			in.close();
 		}
 
-		if (data.contains("\"success\":false")) {
-			throw new UrlException();
+		if (data.contains("\"success\":false")) {  //se il sito restituisce un insuccesso per il tipo di richiesta fatta 
+			throw new UrlException();			   //viene lanciata l'eccezione che segnala all'utente che qualcosa non ha funzionato
 		}
 		ObjectMapper obj = new ObjectMapper();
 		p = obj.readValue(data, ApiModel.class);

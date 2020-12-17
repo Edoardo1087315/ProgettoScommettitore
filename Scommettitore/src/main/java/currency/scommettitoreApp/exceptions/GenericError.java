@@ -13,8 +13,8 @@ public abstract class GenericError extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Metodo che restituisce il messaggio in caso di errore
-	 * @return una String contenente il messaggio
+	 * Metodo astratto che deve essere implementato in ogni classe che la estende
+	 * @return una String contenente il messaggio(?)
 	 */
 	
 	public abstract String getMessage();

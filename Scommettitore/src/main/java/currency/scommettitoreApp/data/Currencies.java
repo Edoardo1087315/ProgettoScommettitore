@@ -19,7 +19,7 @@ import currency.scommettitoreApp.service.*;
 public class Currencies {
 
 	/**
-	 * Metodo che ottiene i valori del giorno odierno e ne ricava il Set di String con i nomi delle valute
+	 * Metodo che restituisce il Set di String con i nomi delle valute gestite dal sito currencyLayer
 	 * @return un Set di String con l'elenco delle valute
 	 * @throws UrlException
 	 * @throws IOException
@@ -36,7 +36,7 @@ public class Currencies {
 	}
 
 	/**
-	 * Metodo che ottiene gli oggetti ApiModel e li inserisce in un Vector
+	 * Metodo che itera chiamate al sito per il periodo richiesto e restituisce un Vector di apiModel indicizzato sul periodo (?)
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
 	 * @param currencies elenco delle valute richieste

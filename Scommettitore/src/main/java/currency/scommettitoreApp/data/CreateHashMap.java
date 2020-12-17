@@ -56,7 +56,7 @@ public class CreateHashMap {
 	public static HashMap<String,CurrencyModel> setStatistics(Vector<ApiModel> v){ 
 		createHashMap(v);
 		for(String s: hs.keySet()) 
-			hs.get(s).setStatistics();
+			hs.get(s).setStatistics(); //richiamo il metodo setStatistics che mi va a fare il calcolo di tutte le statistiche a partire dai valori delle valute nel periodo
 		return hs;
 		}
 		

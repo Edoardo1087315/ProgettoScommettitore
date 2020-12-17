@@ -24,7 +24,15 @@ import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.service.PrincipalService;
 
 /**
- * Classe Controller che gestisce le richieste da parte dell'utente
+ * Classe Controller che esegue il mapping delle richieste dell'utente
+ * 
+ * path:
+ * /currencies
+ * /currencies/metadata
+ * /currencies/statistics
+ * /currencies/filters
+ * /currencies/chart
+ * 
  * @author Emanuele Biccheri
  * @author Edoardo Bilancia
  */
@@ -36,7 +44,7 @@ public class Controller {
 
 	/**
 	 * Metodo che gestisce la GET nella rotta "/currencies"
-	 * @return un Set di String con l'elenco delle valute
+	 * @return Set di String con l'elenco delle valute
 	 * @throws UrlException se si verifica un problema nella connessione al sito
 	 * @throws IOException se si verifica un problema di I/O
 	 */
@@ -48,7 +56,7 @@ public class Controller {
 
 	/**
 	 * Metodo che gestisce la GET nella rotta "/currencies/metadata"
-	 * @return una HasMap String String contenente i metadata
+	 * @return HasMap String,String contenente i metadata
 	 */
 	
 	@RequestMapping(value = "/currencies/metadata", method = RequestMethod.GET)
@@ -61,7 +69,7 @@ public class Controller {
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
 	 * @param currencies elenco delle valute richieste
-	 * @return una HasMap di String, CurrencyModel contenente le valute con le rispettive statistiche
+	 * @return HasMap di String, CurrencyModel contenente le valute con le rispettive statistiche
 	 * @throws UrlException se si verifica un problema nella connessione al sito
 	 * @throws DateException se la data di inizio inserita eccede quella di fine
 	 * @throws IOException se si verifica un problema di I/O
@@ -82,7 +90,7 @@ public class Controller {
 	 * @param to data di fine del periodo voluto
 	 * @param currencies elenco delle valute richieste
 	 * @param filter body del filtro richiesto
-	 * @return un ArrayList di ConstantCurrencyModel contenente le valute filtrate
+	 * @return ArrayList di ConstantCurrencyModel contenente le valute filtrate
 	 * @throws NoSuchMethodException se il filtro viene inserito in maniera non corretta
 	 * @throws UrlException se si verifica un problema nella connessione al sito
 	 * @throws DateException se la data di inizio inserita eccede quella di fine
@@ -116,7 +124,7 @@ public class Controller {
 			@RequestParam(name = "currencies", defaultValue = "EUR") String currencies)
 			throws UrlException, DateException, IOException, ParseException{
 
-		return ResponseEntity.status(HttpStatus.OK).contentType(org.springframework.http.MediaType.IMAGE_PNG)
+		return ResponseEntity.status(HttpStatus.OK).contentType(org.springframework.http.MediaType.IMAGE_PNG) //specifico il tipo del contenuto "MediaType.IMAGE_PNG" per informare che la pagina richiesta contiene un'immagine 
 				.body(service.getChart(from, to, currencies));
 	}
 
@@ -155,7 +163,7 @@ public class Controller {
 	@ExceptionHandler(ParseException.class)
 	public ResponseEntity<Object> handleParseException(ParseException e) {
 		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),
-				"Controlla di aver immesso le date come richiesto");
+				"Controlla di aver immesso le date correttamente");
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
 	
@@ -168,7 +176,7 @@ public class Controller {
 	@ExceptionHandler(IOException.class)
 	public ResponseEntity<Object> handleIOException(IOException e) {
 		ExceptionErr error = new ExceptionErr(new Date(), HttpStatus.BAD_REQUEST, e.getClass().getCanonicalName(),
-				"Problemi di I/O nel collegamento a currencyLayer");
+				"Problemi di I/O nel collegamento a currencyLayer, "+ e.getMessage());
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
 

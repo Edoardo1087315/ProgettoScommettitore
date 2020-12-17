@@ -18,7 +18,7 @@ public class UrlException extends GenericError {
 	
 	@Override
 	public String getMessage() {
-		return "la richiesta al sito non è andate a buon fine, potresti aver terminato le richieste disponibili alitrimenti Verifica di aver scritto correttamente i parametri";
+		return "La richiesta al sito non è andate a buon fine, potresti aver terminato le richieste disponibili altrimenti verifica di aver scritto correttamente i parametri";
 
 	}
 }

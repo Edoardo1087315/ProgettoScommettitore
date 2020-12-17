@@ -45,7 +45,7 @@ public class BodyParsing {
 			try {
 				Class<?> filterClass = Class.forName("currency.scommettitoreApp.filtersstatistics.Filter");
 				Method method = filterClass.getMethod(x, HashMap.class, Integer.class);
-				if(hs.keySet().size()<body.get(x)) throw new AmountException();
+				if(hs.keySet().size()<body.get(x) || body.get(x)<=0) throw new AmountException();
 				try {
 					ls.addAll((ArrayList<ConstantCurrencyModel>) method.invoke(filterClass.newInstance(), hs, body.get(x)));
 				} catch (IllegalAccessException | InvocationTargetException e) {
