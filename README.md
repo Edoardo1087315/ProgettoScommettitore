@@ -34,7 +34,7 @@ GET | /currencies/chart | from, to, currencies | restituisce l'andamento della v
 alla rotta /currencies/filters la richiesta dovrà essere di tipo POST e andrà inserito il body in formato JSON
 per specificare il tipo di filtro richiesto.
 
-## Parametri
+### Parametri
 i parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
 
 * **from & to**
@@ -70,7 +70,7 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 
 
 
-## Statistiche
+### Statistiche
 
 Le statistiche restituite dall'applicativo vengono calcolate al momento della richiesta da parte dell'utente.
 Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul periodo vengono restituite le seguenti statistiche per ogni valuta:
@@ -83,7 +83,7 @@ Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul peri
 
 in particolare i valori restituiti saranno ordinati dal meno recente al più recente 
 
-## Filtri
+### Filtri
 
 A disposizione dell'utente è presente la possibilità di richiedere, su un dato periodo, le valute che risultano più o meno costanti a seconda della richiesta.
 alla rotta /currencies/filters è richiesto all'utente di specificare un body secondo la seguente sintassi:
@@ -105,10 +105,10 @@ viene restituito un errore nei seguenti casi:
 > - se l'utente inserisce un valore maggiore di quello delle valute richieste.
 > - se la sintassi non è corretta.
 
-## Grafico 
+### Grafico 
 
 un ulteriore servizio fornito dall'applicativo è la possibilità di consultare un grafico relativo all'andamento della valuta sul periodo
 l'utente può scegliere quale valuta visualizzare nel grafico, potendone scegliere anche più di una.
 nonostante ciò è consigliato inserire una valuta per volta affinchè la risoluzione del grafico risulti sufficientemente valida.
 
-# Sviluppo
+## Sviluppo
