@@ -112,3 +112,7 @@ l'utente può scegliere quale valuta visualizzare nel grafico, potendone sceglie
 nonostante ciò è consigliato inserire una valuta per volta affinchè la risoluzione del grafico risulti sufficientemente valida.
 
 ## Sviluppo
+
+### Package
+
+![image of packages](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreAppPackage.jpg)
