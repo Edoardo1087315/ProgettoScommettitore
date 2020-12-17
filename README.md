@@ -14,6 +14,8 @@ poi modellizzati e adattati al tipo di richiesta dell'utente restituendo i dati 
 
 [Currencylayer](www.currencylayer.com) è un sito collezziona informazioni riguardanti 168 valute mondiali dal 2001, e mette a disposizione tramite un sevizio API l'accesso a questi dati.
 
-##come funziona?
+## come funziona?
+
+![Image of CaseDiagram](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreUseCase.jpg)
 
 **scommettitoreApp** 
