@@ -18,4 +18,14 @@ poi modellizzati e adattati al tipo di richiesta dell'utente restituendo i dati 
 
 ![Image of CaseDiagram](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreUseCase.jpg)
 
-**scommettitoreApp** 
+Dopo aver avviato l'applicazione, sarà possibile interrogarla attraverso richieste HTTP all'indirizzo http://localhost:8080.
+
+le richieste gestite sono 5
+
+Tipo | path | parametri | informazioni restituite
+---------------------------------------------------------------
+GET | /currencies | - | restituisce l'elenco delle valute disponibili
+GET | /currencies/metadata | - | restituisce i metadata
+GET | /currencies/statistics | from, to, currencies | restituisce le statistiche relative alle valute richiete nel periodo inserito
+POST | /currencies/filters | from, to, currencies, body | restituisce le valute filtrate come richiesto
+GET | /currencies/chart | from, to, currencies | restituisce l'andamento della valuta sul periodo attraverso un grafico
