@@ -160,22 +160,22 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 * **chiamata GET /currencies/metadata**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetMetadata.jpg"  width="700" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetMetadata.jpg"  width="400" />
 
 
 
 * **chiamata GET /currencies/statistics**
 
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetStatistics.jpg"  width="700" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetStatistics.jpg"  width="900" />
 
 
 * **chiamata POST /currencies/filters**
 
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetFiltere.jpg"  width="700" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetFiltere.jpg"  width="900" />
 
 
 * **chiamata GET /currencies/chart**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetChart.jpg"  width="700" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetChart.jpg"  width="900" />
