@@ -149,3 +149,33 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 **currency.scomettitoreApp.plot**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassChart.jpg"  width="700" />
+
+
+### Sequenze
+
+* **chiamata GET /currencies**
+
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetCurrencies.jpg"  width="700" />
+
+
+* **chiamata GET /currencies/metadata**
+
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetMetadata.jpg"  width="700" />
+
+
+
+* **chiamata GET /currencies/statistics**
+
+
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetStatistics.jpg"  width="700" />
+
+
+* **chiamata POST /currencies/filters**
+
+
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetFiltere.jpg"  width="700" />
+
+
+* **chiamata GET /currencies/chart**
+
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetChart.jpg"  width="700" />
