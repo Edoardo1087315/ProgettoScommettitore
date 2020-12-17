@@ -121,32 +121,63 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 **currency.scomettitoreApp.controller**
 
+classe che si occupa di gestire le richieste dell'utente ed eventuali eccezioni
+
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassController.jpg"  width="700" />
 
 **currency.scomettitoreApp.service**
+
+la classe PrincipalService si occupa di rimandare le richieste dal controller alle varie classi presenti nel progetto
+la classe DataService si occupa di fornire dei metodi per la gestione delle date quali ad esempio la verifica e il parsing da stringa a oggetto di tipo Date
+
+la classe UrlService si occupa di generare il link al sito currencylayer per la richiesta delle API
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassService.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.data**
 
+la classe CurrencyLayer si occupa di effettuare la chiamata al sito ed effettua il parsing del JSON restituito
+la classe Currency prende gli elementi parsati di tipo ApiModel (uno per ogni data) e li mette in un vettore.
+la classe CreateHashMap costruisce la hashmap e la popola in base alle richieste
+
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassCurrencylayer.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.exceptions**
+
+in questo package sono presenti le eccezioni personalizzate.
+La classe ExceptionErr fornisce un modello di risposta che contiene le varie informazioni relative all'eccezione che è stata lanciata,
+in particolare viene restituito all'utente un messaggio, il timestamp della richiesta, l'eccezione lanciata e un HttpStatus.
+tutte le eccezioni estendono la classe astratta GenericError.
+l'eccezione DateException viene lanciata quando la data eccede o e uguale alla data di fine.
+l'eccezione UrlException viene lanciata nel momento in cui il server restituisce un insuccesso a fronte di una richiesta.
+l'eccezione AmountException viene lanciata quando il valore inserito nel body risulta essere non positivo oppure maggiore del numero delle valute richieste.
+
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassException.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.filtersstatistics**
 
+il package filtersstatistics contiene tutte le classi utili a generare statistiche e gestire i filtri inseriti nel body dall'utente.
+
+la classe BodyParsing si occupa di effettuare il parsing del filtro inserito, e richiamare il metodo corretto.
+la classe Filter si occupa di filtrare le valute.
+la classe Statistics genera tutte le statistiche.
+
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFilters.jpg"  width="700" height="130"/>
 
 **currency.scomettitoreApp.model**
 
+in questo package sono contenuti tutti i modelli utilizzati.
+
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassModel.jpg"  width="700" />
 
 **currency.scomettitoreApp.plot**
+
+la classe Chart utilizza la libreria jfreeChart che mette a disposizione del developer una serie di metodi che permettono la creazione di un
+grafico da un dataset di valori.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassChart.jpg"  width="700" />
 
