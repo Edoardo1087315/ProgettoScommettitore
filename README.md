@@ -60,6 +60,8 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 > -  se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
 > -  alla rotta /currencies/chart il parametro assume un valore di default se non inserito pari ad "EUR".
 
+
+
 **Esempi**
 
 - sintassi non corretta sui parametri from & to [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/datanonesistente.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/soloto.PNG) [3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/sintassidateerrate.PNG) [4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/dateopposte.PNG)
