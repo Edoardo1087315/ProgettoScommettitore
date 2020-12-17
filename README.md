@@ -125,14 +125,14 @@ Nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 ### Classi
 
-**currency.scomettitoreApp.controller**
+* **currency.scomettitoreApp.controller**
 
 Classe che si occupa di gestire le richieste dell'utente ed eventuali eccezioni.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassController.jpg"  width="700" />
 
 
-**currency.scomettitoreApp.service**
+* **currency.scomettitoreApp.service**
 
 La classe PrincipalService si occupa di smistare le richieste del controller.
 
@@ -143,7 +143,7 @@ La classe UrlService si occupa di generare il link per le richieste API al sito 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassService.jpg"  width="700" />
 
 
-**currency.scomettitoreApp.data**
+* **currency.scomettitoreApp.data**
 
 La classe CurrencyLayer si occupa di effettuare la chiamata al sito ed effettua il parsing del JSON restituito.
 La classe Currency prende gli elementi parsati di tipo ApiModel (uno per ogni data) e li mette in un vettore.
@@ -152,7 +152,7 @@ La classe CreateHashMap costruisce la hashmap e la popola in base alle richieste
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassCurrencylayer.jpg"  width="700" />
 
 
-**currency.scomettitoreApp.exceptions**
+* **currency.scomettitoreApp.exceptions**
 
 In questo package sono presenti le eccezioni personalizzate.
 
@@ -171,7 +171,7 @@ L'eccezione AmountException viene lanciata quando il valore inserito nel body ri
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassException.jpg"  width="700" />
 
 
-**currency.scomettitoreApp.filtersstatistics**
+* **currency.scomettitoreApp.filtersstatistics**
 
 Il package filtersstatistics contiene tutte le classi utili a generare statistiche e gestire i filtri inseriti nel body dall'utente al momento della richiesta.
 
@@ -184,14 +184,14 @@ La classe Statistics genera tutte le statistiche.
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFilters.jpg"  width="700" height="130"/>
 
 
-**currency.scomettitoreApp.model**
+* **currency.scomettitoreApp.model**
 
 In questo package sono contenuti tutti i modelli utilizzati.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassModel.jpg"  width="700" />
 
 
-**currency.scomettitoreApp.plot**
+* **currency.scomettitoreApp.plot**
 
 La classe Chart utilizza la libreria jfreeChart che mette a disposizione del developer una serie di metodi che permettono la creazione di un
 grafico da un dataset di valori.
