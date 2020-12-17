@@ -62,11 +62,11 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 
 
 
-**Esempi**
+- **Esempi**
 
-- sintassi non corretta sui parametri from & to [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/datanonesistente.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/soloto.PNG) [3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/sintassidateerrate.PNG) [4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/dateopposte.PNG)
+  - sintassi non corretta sui parametri from & to [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/datanonesistente.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/soloto.PNG) [3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/sintassidateerrate.PNG) [4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/dateopposte.PNG)
 
-- sintassi non corretta sul parametro currencies [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespippo.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespuntoevirgola.PNG)
+  - sintassi non corretta sul parametro currencies [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespippo.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespuntoevirgola.PNG)
 
 
 
