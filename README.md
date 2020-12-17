@@ -1,115 +1,121 @@
 # Progetto Spring
 In questo repository troverai il progetto di programmazione ad oggetti A.A. 2019/2020 svolto dal gruppo composto da 
-- Edoardo Bilancia & Emanuele Biccheri.
 
-Corso in ingegneria informatica e dell'automazione presso l'[Università Politecnica delle Marche](https://www.univpm.it).
+Edoardo Bilancia & Emanuele Biccheri.
+
+Corso in Ingegneria informatica e dell'automazione presso l'[Università Politecnica delle Marche](https://www.univpm.it).
 
 ## Introduzione
 
-il progetto in questione è stato sviluppato mediante l'utilizzo del framework Spring.
+Il progetto in questione è stato sviluppato mediante l'utilizzo del framework Spring.
 
-grazie all'utilizzo di questo framework è stata sviluppata l'applicazione web-based **"scommettitoreApp"** che può essere interrogata dall'utente mediante richieste
-di tipo GET/POST. l'applicativo si occupa di interrogare le API dal sito [Currencylayer](www.currencylayer.com) il quale restituira i dati in formato JSON che saranno
+Grazie all'utilizzo di questo framework è stata sviluppata l'applicazione web-based **"scommettitoreApp"** che può essere interrogata dall'utente mediante richieste
+di tipo GET/POST. L'applicativo si occupa di comunicare con le API del sito [Currencylayer](www.currencylayer.com), il quale restituirà i dati in formato JSON che saranno
 poi modellizzati e adattati al tipo di richiesta dell'utente restituendo i dati in formato JSON.
 
-[Currencylayer](www.currencylayer.com) è un sito collezziona informazioni riguardanti 168 valute mondiali dal 2001, e mette a disposizione tramite un sevizio API l'accesso a questi dati.
+[Currencylayer](www.currencylayer.com) è un sito che colleziona informazioni riguardanti 168 valute mondiali dal 2001, e mette a disposizione tramite API l'accesso a questi dati. 
+
+E' necessario sottoscrivere un abbonamento al sito che permette, attraverso una chiave di accesso, di accedere al servizio. Nel nostro caso abbiamo utilizzato la versione gratuita che permette un numero limitato di accessi e di funzioni, nello specifico non vi è la possibilità di modificare la valuta di riferimento "USD".
 
 ## Come funziona?
 
-Dopo aver avviato l'applicazione, sarà possibile interrogarla attraverso richieste HTTP all'indirizzo http://localhost:8080.
+Dopo aver avviato l'applicazione sarà possibile interrogarla attraverso richieste HTTP all'indirizzo http://localhost:8080.
 
 ![Image of CaseDiagram](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreUseCase.jpg)
 
-come descritto dal diagramma dei casi d'uso le richieste possibli da parte dell'utente sono diverse e riassunte in breve di seguito.
+Come descritto dal diagramma dei casi d'uso, le richieste possibli da parte dell'utente sono diverse e riassunte in breve di seguito.
 
 
-Tipo | path | parametri | informazioni restituite
+Tipo | Path | Parametri | Informazioni restituite
 -----|------|-----------|--------------------------------------
-GET | /currencies | - | restituisce l'elenco delle valute disponibili
-GET | /currencies/metadata | - | restituisce i metadata
-GET | /currencies/statistics | from, to, currencies | restituisce le statistiche relative alle valute richiete 
-POST | /currencies/filters | from, to, currencies | restituisce le valute filtrate come richiesto
-GET | /currencies/chart | from, to, currencies | restituisce l'andamento della valuta sul periodo mediante un grafico
+GET | /currencies | - | Restituisce l'elenco delle valute disponibili
+GET | /currencies/metadata | - | Restituisce i metadata
+GET | /currencies/statistics | from, to, currencies | Restituisce le statistiche relative alle valute richiete 
+POST | /currencies/filters | from, to, currencies | Restituisce le valute filtrate come richiesto
+GET | /currencies/chart | from, to, currencies | Restituisce l'andamento della valuta sul periodo mediante un grafico
 
-alla rotta /currencies/filters la richiesta dovrà essere di tipo POST e andrà inserito il body in formato JSON
+Alla rotta /currencies/filters la richiesta dovrà essere di tipo POST e andrà inserito il body in formato JSON
 per specificare il tipo di filtro richiesto.
 
 ### Parametri
-i parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
+I parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
 
 * **from & to**
 
-in particolare i parametri from & to permettono di specificare il periodo sul quale ottenere le informazioni e vanno inseriti 
+In particolare i parametri "from" e "to" permettono di specificare il periodo sul quale ottenere le informazioni e devono rispettare 
 
-secondo la seguente sintassi : ```yyyy-mm-dd ```
-> - se non inseriti entrambi allora di default l'applicativo andrà a considerare il periodo che và da ieri ad oggi.
-> - se l'utente inserisce solo il parametro "from" allora di default verrà considerato il periodo che va dalla data inserita ad oggi.
-> - se l'utente inserisce solo il parametro "to" allora verrà restituito un errore.
-> - se l'utente non inserisce la data come da sintassi verrà restituito un errore.
-> - se il prametro "from" contiene una data maggiore o uguale di quella presente nel to viene restituito un errore.
+la seguente sintassi : ```yyyy-mm-dd ```
+> - Se non inseriti entrambi allora di default l'applicativo andrà a considerare il periodo che và da ieri ad oggi.
+> - Se l'utente inserisce solo il parametro "from" allora di default verrà considerato il periodo che va dalla data inserita ad oggi.
+> - Se l'utente inserisce solo il parametro "to" allora verrà restituito un errore.
+> - Se l'utente non inserisce la data come da sintassi verrà restituito un errore.
+> - Se il prametro "from" contiene una data maggiore o uguale di quella presente nel "to" viene restituito un errore.
 
 * **currencies**
 
-il parametro "currencies" permette di filtrare le valute e di considerare le informazioni relative solo a quelle inserite.
-E' possible specificare più valute elencandole separate da virogla.
+Il parametro "currencies" permette di filtrare le valute e di considerare le informazioni relative solo a quelle inserite.
+E' possible specificare più valute elencandole separate dalla virogla.
 
-un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD``` 
+Un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD``` 
 
-> -  se il parametro non viene inserito l'applicativo non andrà a considerare il filtro e restituirà le informazioni relative a tutte le valute.
-> -  se il parametro contiene solo uno o più valute non valide verrà restituito un errore.
-> -  se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
-> -  alla rotta /currencies/chart il parametro assume un valore di default se non inserito pari ad "EUR".
-
-
+> -  Se il parametro non viene inserito l'applicativo non andrà a considerare il filtro e restituirà le informazioni relative a tutte le valute.
+> -  Se il parametro contiene solo uno o più valute non valide verrà restituito un errore.
+> -  Se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
+> -  Alla rotta "/currencies/chart" il parametro assume un valore di default pari ad "EUR" se non inserito.
 
 - **Esempi**
 
-  - sintassi non corretta sui parametri from & to [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/datanonesistente.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/soloto.PNG) [3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/sintassidateerrate.PNG) [4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/dateopposte.PNG)
+  - Sintassi non corretta sui parametri "from" e "to" [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/datanonesistente.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/soloto.PNG) [Es 3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/sintassidateerrate.PNG) [Es 4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/dateopposte.PNG)
 
-  - sintassi non corretta sul parametro currencies [1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespippo.PNG) [2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespuntoevirgola.PNG)
+  - Sintassi non corretta sul parametro "currencies" [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespippo.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/currenciespuntoevirgola.PNG)
 
 
 
 ### Statistiche
 
 Le statistiche restituite dall'applicativo vengono calcolate al momento della richiesta da parte dell'utente.
+
 Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul periodo vengono restituite le seguenti statistiche per ogni valuta:
 
 * Media, *valore medio della valuta sul periodo indicato*
 * Varianza, *valore della varianza della valuta sul periodo indicato*
 * Deviazione standard,  *valore della deviazione standard della valuta sul periodo indicato (indice di volatilità)*
 * Variazione percentuale,  *valore della varizione percentuale della valuta sul periodo indicato*
-* Variazione percentuale giornaliera,  *valori della variazioni percentuali giornaliere della valuta sul periodo indicato*
+* Variazioni percentuali giornaliere,  *valori della variazioni percentuali giornaliere della valuta sul periodo indicato*
 
-in particolare i valori restituiti saranno ordinati dal meno recente al più recente 
+**NOTA:** I valori restituiti saranno ordinati dal meno recente al più recente.
 
 ### Filtri
 
 A disposizione dell'utente è presente la possibilità di richiedere, su un dato periodo, le valute che risultano più o meno costanti a seconda della richiesta.
-alla rotta /currencies/filters è richiesto all'utente di specificare un body secondo la seguente sintassi:
+Alla rotta "/currencies/filters" è richiesto all'utente di specificare un body secondo la seguente sintassi:
 ```{"metodo" : valore}```
 dove il campo "metodo" deve essere: 
 * "best", *se l'utente vuole ottenere le più costanti sul periodo*
 * "worst", *se l'utente vuole ottenere le meno costanti sul periodo* 
 
-mentre il campo "valore" corrisponde alla quantità di valute che l'utente vuole filtrare.
-oltre al nome delle valute l'applicativo restituisce l'indice di volatilità relativo ad ogni valuta filtrata, utile in secondo luogo per delle analisi di mercato.
+Il campo "valore" corrisponde alla quantità di valute che l'utente vuole filtrare.
 
-se l'utente inserisce i due filtri contemporaneamente otterrà una lista unica in cui saranno presenti le valute filtrate nell'ordine con cui sono stati indicati nel body.
-la sintassi per utilizzare i due filtri contemporaneamente è:
+Oltre al nome delle valute l'applicativo restituisce l'indice di volatilità relativo ad ogni valuta filtrata, utile in secondo luogo per delle analisi di mercato.
+
+Se l'utente inserisce i due filtri contemporaneamente otterrà una lista unica in cui saranno presenti le valute filtrate nell'ordine con cui sono stati indicati nel body.
+La sintassi per utilizzare i due filtri contemporaneamente è:
 ```{"metodo" : valore, "metodo" : valore}``` 
 
-viene restituito un errore nei seguenti casi:
-> - se l'utente inserisce un metodo non presente.
-> - se l'utente inserisce un valore negativo o nullo.
-> - se l'utente inserisce un valore maggiore di quello delle valute richieste.
-> - se la sintassi non è corretta.
+Viene restituito un errore nei seguenti casi:
+> - Se l'utente inserisce un metodo non presente.
+> - Se l'utente inserisce un valore negativo o nullo.
+> - Se l'utente inserisce un valore maggiore di quello delle valute richieste.
+> - Se la sintassi non è corretta.
+
 
 ### Grafico 
 
-un ulteriore servizio fornito dall'applicativo è la possibilità di consultare un grafico relativo all'andamento della valuta sul periodo
-l'utente può scegliere quale valuta visualizzare nel grafico, potendone scegliere anche più di una.
-nonostante ciò è consigliato inserire una valuta per volta affinchè la risoluzione del grafico risulti sufficientemente valida.
+Un ulteriore servizio fornito dall'applicativo è la possibilità di consultare un grafico relativo all'andamento della valuta sul periodo;
+ l'utente può scegliere quale valuta visualizzare nel grafico, potendone scegliere anche più di una.
+
+Nonostante ciò è consigliato inserire una valuta per volta affinchè la risoluzione del grafico risulti sufficientemente valida.
+
 
 ## Sviluppo
 
@@ -121,38 +127,45 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 **currency.scomettitoreApp.controller**
 
-classe che si occupa di gestire le richieste dell'utente ed eventuali eccezioni
+Classe che si occupa di gestire le richieste dell'utente ed eventuali eccezioni.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassController.jpg"  width="700" />
 
+
 **currency.scomettitoreApp.service**
 
-la classe PrincipalService si occupa di rimandare le richieste dal controller alle varie classi presenti nel progetto
-la classe DataService si occupa di fornire dei metodi per la gestione delle date quali ad esempio la verifica e il parsing da stringa a oggetto di tipo Date
+La classe PrincipalService si occupa di smistare le richieste del controller.
 
-la classe UrlService si occupa di generare il link al sito currencylayer per la richiesta delle API
+La classe DateService si occupa di fornire dei metodi per la gestione delle date, quali ad esempio la verifica e il parsing da stringa a oggetto di tipo Date.
+
+La classe UrlService si occupa di generare il link per le richieste API al sito Currencylayer.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassService.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.data**
 
-la classe CurrencyLayer si occupa di effettuare la chiamata al sito ed effettua il parsing del JSON restituito
-la classe Currency prende gli elementi parsati di tipo ApiModel (uno per ogni data) e li mette in un vettore.
-la classe CreateHashMap costruisce la hashmap e la popola in base alle richieste
+La classe CurrencyLayer si occupa di effettuare la chiamata al sito ed effettua il parsing del JSON restituito.
+La classe Currency prende gli elementi parsati di tipo ApiModel (uno per ogni data) e li mette in un vettore.
+La classe CreateHashMap costruisce la hashmap e la popola in base alle richieste.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassCurrencylayer.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.exceptions**
 
-in questo package sono presenti le eccezioni personalizzate.
+In questo package sono presenti le eccezioni personalizzate.
+
 La classe ExceptionErr fornisce un modello di risposta che contiene le varie informazioni relative all'eccezione che è stata lanciata,
 in particolare viene restituito all'utente un messaggio, il timestamp della richiesta, l'eccezione lanciata e un HttpStatus.
-tutte le eccezioni estendono la classe astratta GenericError.
-l'eccezione DateException viene lanciata quando la data eccede o e uguale alla data di fine.
-l'eccezione UrlException viene lanciata nel momento in cui il server restituisce un insuccesso a fronte di una richiesta.
-l'eccezione AmountException viene lanciata quando il valore inserito nel body risulta essere non positivo oppure maggiore del numero delle valute richieste.
+
+Tutte le eccezioni estendono la classe astratta GenericError.
+
+L'eccezione DateException viene lanciata quando la data eccede o e uguale alla data di fine.
+
+L'eccezione UrlException viene lanciata nel momento in cui il server restituisce un insuccesso a fronte di una richiesta.
+
+L'eccezione AmountException viene lanciata quando il valore inserito nel body risulta essere non positivo oppure maggiore del numero delle valute richieste.
 
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassException.jpg"  width="700" />
@@ -160,54 +173,53 @@ l'eccezione AmountException viene lanciata quando il valore inserito nel body ri
 
 **currency.scomettitoreApp.filtersstatistics**
 
-il package filtersstatistics contiene tutte le classi utili a generare statistiche e gestire i filtri inseriti nel body dall'utente.
+Il package filtersstatistics contiene tutte le classi utili a generare statistiche e gestire i filtri inseriti nel body dall'utente al momento della richiesta.
 
-la classe BodyParsing si occupa di effettuare il parsing del filtro inserito, e richiamare il metodo corretto.
-la classe Filter si occupa di filtrare le valute.
-la classe Statistics genera tutte le statistiche.
+La classe BodyParsing si occupa di effettuare il parsing del filtro inserito dall'utente e richiamare il metodo corretto.
+
+La classe Filter si occupa di filtrare le valute.
+
+La classe Statistics genera tutte le statistiche.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFilters.jpg"  width="700" height="130"/>
 
+
 **currency.scomettitoreApp.model**
 
-in questo package sono contenuti tutti i modelli utilizzati.
+In questo package sono contenuti tutti i modelli utilizzati.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassModel.jpg"  width="700" />
 
+
 **currency.scomettitoreApp.plot**
 
-la classe Chart utilizza la libreria jfreeChart che mette a disposizione del developer una serie di metodi che permettono la creazione di un
+La classe Chart utilizza la libreria jfreeChart che mette a disposizione del developer una serie di metodi che permettono la creazione di un
 grafico da un dataset di valori.
+
+Una volta definito il dataset è possibile generare un grafico ed è possibile personalizzarlo a seconda delle esigenze. Nel nostro caso abbiamo utilizzato un grafico lineare personalizzato, il quale, ad esempio, adatta il range degli assi automaticamente a seconda del dataset.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassChart.jpg"  width="700" />
 
 
 ### Sequenze
 
-* **chiamata GET /currencies**
+* **Chiamata GET /currencies**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetCurrencies.jpg"  width="700" />
 
-
-* **chiamata GET /currencies/metadata**
+* **Chiamata GET /currencies/metadata**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetMetadata.jpg"  width="400" />
 
-
-
-* **chiamata GET /currencies/statistics**
-
+* **Chiamata GET /currencies/statistics**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetStatistics.jpg"  width="900" />
 
-
-* **chiamata POST /currencies/filters**
-
+* **Chiamata POST /currencies/filters**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetFilters.jpg"  width="900" />
 
-
-* **chiamata GET /currencies/chart**
+* **Chiamata GET /currencies/chart**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetChart.jpg"  width="900" />
 
@@ -219,11 +231,13 @@ grafico da un dataset di valori.
 
 #### Suddivisione del lavoro
 
-lo sviluppo del progetto è avvenuto per fasi,
-in primo luogo abbiamo fatto una stesura del codice UML per concretizzare le idee di entrambi.
+Lo sviluppo del progetto è avvenuto per fasi.
+
+In primo luogo abbiamo fatto una stesura del codice UML per concretizzare le idee di entrambi.
+
 Abbiamo poi lavorato insieme tramite videochiamate con condivisione dello schermo per ragionare sulla possibile implementazione del codice,
 in particolar modo sulle parti più complesse ci siamo confrontati e abbiamo cercato in rete le possibili soluzioni ai nostri problemi.
 
-purchè sia capitato di lavorare individualmente al progetto, ogni modifica a quest'utlimo è stata sottoposta alla revisione dell'altro per 
+Purchè sia capitato di lavorare individualmente al progetto, ogni modifica a quest'utlimo è stata sottoposta alla revisione dell'altro per 
 garantire un risultato migliore.
 
