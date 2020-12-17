@@ -74,15 +74,10 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 
 le statistiche restituite dall'applicativo sono le seguenti e vengono calcolate al momento della richiesta da parte dell'utente  :
 
-Media
-> valore medio della valuta sul periodo indicato
-Varianza
-> valore della varianza della valuta sul periodo indicato
-Deviazione standard
-> valore della deviazione standard della valuta sul periodo indicato (indice di volatilità)
-Variazione percentuale
-> valore della varizione percentuale della valuta sul periodo indicato
-Variazione percentuale giornaliera
-> valori della variazioni percentuali giornaliere della valuta sul periodo indicato
+* Media *valore medio della valuta sul periodo indicato*
+* Varianza *valore della varianza della valuta sul periodo indicato*
+* Deviazione standard  *valore della deviazione standard della valuta sul periodo indicato (indice di volatilità)*
+* Variazione percentuale  *valore della varizione percentuale della valuta sul periodo indicato*
+* Variazione percentuale giornaliera  *valori della variazioni percentuali giornaliere della valuta sul periodo indicato*
 
 
