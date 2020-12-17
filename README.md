@@ -127,8 +127,6 @@ Nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 #### currency.scomettitoreApp.controller
 
-**currency.scomettitoreApp.controller**
-
 Classe che si occupa di gestire le richieste dell'utente ed eventuali eccezioni.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassController.jpg"  width="700" />
