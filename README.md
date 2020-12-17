@@ -14,7 +14,7 @@ poi modellizzati e adattati al tipo di richiesta dell'utente restituendo i dati 
 
 [Currencylayer](www.currencylayer.com) è un sito collezziona informazioni riguardanti 168 valute mondiali dal 2001, e mette a disposizione tramite un sevizio API l'accesso a questi dati.
 
-## come funziona?
+## Come funziona?
 
 Dopo aver avviato l'applicazione, sarà possibile interrogarla attraverso richieste HTTP all'indirizzo http://localhost:8080.
 
@@ -34,7 +34,7 @@ GET | /currencies/chart | from, to, currencies | restituisce l'andamento della v
 alla rotta /currencies/filters la richiesta dovrà essere di tipo POST e andrà inserito il body in formato JSON
 per specificare il tipo di filtro richiesto.
 
-## i parametri
+## Parametri
 i parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
 
 * **from & to**
@@ -70,4 +70,19 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 
 
 
-###
+## Statistiche
+
+le statistiche restituite dall'applicativo sono le seguenti e vengono calcolate al momento della richiesta da parte dell'utente  :
+
+* Media
+> valore medio della valuta sul periodo indicato
+* Varianza
+> valore della varianza della valuta sul periodo indicato
+* Deviazione standard
+> valore della deviazione standard della valuta sul periodo indicato (indice di volatilità)
+* Variazione percentuale
+> valore della varizione percentuale della valuta sul periodo indicato
+* Variazione percentuale giornaliera
+> valori della variazioni percentuali giornaliere della valuta sul periodo indicato
+
+
