@@ -31,7 +31,7 @@ GET | /currencies/statistics | from, to, currencies | restituisce le statistiche
 POST | /currencies/filters | from, to, currencies | restituisce le valute filtrate come richiesto
 GET | /currencies/chart | from, to, currencies | restituisce l'andamento della valuta sul periodo mediante un grafico
 
-alla rotta /currencies/filters la richiesta dovrà essere di tipo POST è andrà inserito il body in formato JSON al momento della richiesta
+alla rotta /currencies/filters la richiesta dovrà essere di tipo POST e andrà inserito il body in formato JSON
 per specificare il tipo di filtro richiesto.
 
 ### i parametri
@@ -60,4 +60,12 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 - se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
 - alla rotta /currencies/chart il parametro assume un valore di default se non inserito pari ad "EUR".
 
+**Esempi: **
 
+- sintassi non corretta sui parametri from & to
+- sintassi non corretta sul parametro currencies
+- combinazione delle precedenti situazioni elencate
+
+
+
+###
