@@ -115,4 +115,4 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 ### Package
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreAppPackage.jpg"  width="100" /> 
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreAppPackage.jpg"  width="500" /> 
