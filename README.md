@@ -72,7 +72,7 @@ un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD
 
 ## Statistiche
 
-le statistiche restituite dall'applicativo sono le seguenti e vengono calcolate al momento della richiesta da parte dell'utente  :
+Le statistiche restituite dall'applicativo sono le seguenti e vengono calcolate al momento della richiesta da parte dell'utente  :
 
 * Media, *valore medio della valuta sul periodo indicato*
 * Varianza, *valore della varianza della valuta sul periodo indicato*
@@ -80,4 +80,24 @@ le statistiche restituite dall'applicativo sono le seguenti e vengono calcolate 
 * Variazione percentuale,  *valore della varizione percentuale della valuta sul periodo indicato*
 * Variazione percentuale giornaliera,  *valori della variazioni percentuali giornaliere della valuta sul periodo indicato*
 
+## Filtri
+
+A disposizione dell'utente è presente la possibilità di richiedere, su un dato periodo, le valute che risultano più o meno costanti a seconda della richiesta.
+alla rotta /currencies/filters è richiesto all'utente di specificare un body secondo la seguente sintassi:
+```{"metodo" : valore}```
+dove il campo "metodo" deve essere: 
+* "best", *se l'utente vuole ottenere le più costanti sul periodo*
+* "worst", *se l'utente vuole ottenere le meno costanti sul periodo* 
+mentre il campo "valore" corrisponde alla quantità di valute che l'utente vuole filtrare.
+oltre al nome delle valute l'applicativo restituisce l'indice di volatilità relativo ad ogni valuta filtrata, utile in secondo luogo per delle analisi di mercato.
+
+se l'utente inserisce i due filtri contemporaneamente otterrà una lista unica in cui saranno presenti le valute filtrate nell'ordine con cui sono stati indicati nel body.
+la sintassi per utilizzare i due filtri contemporaneamente è:
+```{"metodo" : valore, "metodo : valore}``` 
+
+viene restituito un errore nei seguenti casi:
+> - se l'utente inserisce un metodo non presente.
+> - se l'utente inserisce un valore negativo o nullo.
+> - se l'utente inserisce un valore maggiore di quello delle valute richieste.
+> - se la sintassi non è corretta.
 
