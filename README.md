@@ -52,5 +52,9 @@ E` possible specificare più valute elencandole separate da virogla.
 
 un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD``` 
 
--se 
+-se il parametro non viene inserito l'applicativo non andrà a considerare il filtro e restituirà le informazioni relative a tutte le valute.
+-se il parametro contiene solo uno o più valute non valide verrà restituito un errore.
+-se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
+-alla rotta /currencies/chart il parametro assume un valore di default se non inserito pari ad "EUR".
+
 
