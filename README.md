@@ -173,7 +173,7 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 * **chiamata POST /currencies/filters**
 
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetFiltere.jpg"  width="900" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetFilters.jpg"  width="900" />
 
 
 * **chiamata GET /currencies/chart**
