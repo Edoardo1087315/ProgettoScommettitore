@@ -121,31 +121,31 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 **currency.scomettitoreApp.controller**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassController.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassController.jpg"  width="700" />
 
 **currency.scomettitoreApp.service**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassService.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassService.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.data**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassCurrencylayer.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassCurrencylayer.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.exceptions**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassException.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassException.jpg"  width="700" />
 
 
 **currency.scomettitoreApp.filtersstatistics**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFilters.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFilters.jpg"  width="700" />
 
 **currency.scomettitoreApp.model**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassModel.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassModel.jpg"  width="700" />
 
 **currency.scomettitoreApp.plot**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassChart.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassChart.jpg"  width="700" />
