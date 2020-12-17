@@ -13,8 +13,26 @@ import currency.scommettitoreApp.exceptions.AmountException;
 import currency.scommettitoreApp.model.ConstantCurrencyModel;
 import currency.scommettitoreApp.model.CurrencyModel;
 
+/**
+ * Classe che fa il parsing del body del filtro
+ * @author Emanuele Biccheri
+ * @author Edoardo Bilancia
+ */
+
 public class BodyParsing {
 
+	/**
+	 * Metodo che prende il body del filtro, lo decodifica e richiama il metodo per filtrare
+	 * @param filter body del filtro richiesto
+	 * @param hs la HashMap precedentemente creata e popolata con le valute e le statistiche
+	 * @return un ArrayList di ConstantCurrencyModel con le valute filtrate
+	 * @throws NoSuchMethodException
+	 * @throws JsonMappingException
+	 * @throws JsonProcessingException
+	 * @throws AmountException
+	 * @see currency.scommettitoreApp.filtersstatistics.Filter
+	 */
+	
 	public static ArrayList<ConstantCurrencyModel> bodyParsing(String filter, HashMap<String, CurrencyModel> hs) throws NoSuchMethodException, JsonMappingException, JsonProcessingException, AmountException {
 
 		HashMap<String, Integer> body = new HashMap<String, Integer>();

@@ -2,7 +2,18 @@ package currency.scommettitoreApp.model;
 
 import java.util.HashMap;
 
+/**
+ * Classe per creare i metadata
+ * @author Emanuele Biccheri
+ * @author Edoardo Bilancia
+ */
+
 public class Metadata {
+	
+	/**
+	 * Metodo che crea la HashMap con i metadata
+	 * @return una HashMap
+	 */
 	
 	public static HashMap<String,String> getMetadata(){
 		

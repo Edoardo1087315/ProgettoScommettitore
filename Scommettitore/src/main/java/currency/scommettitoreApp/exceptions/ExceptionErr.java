@@ -4,6 +4,12 @@ import java.util.Date;
 
 import org.springframework.http.HttpStatus;
 
+/**
+ * Classe dell'eccezione in caso di errore
+ * @author Emanuele Biccheri
+ * @author Edoardo Bilancia
+ */
+
 public class ExceptionErr {
 
 	private Date date;
@@ -14,10 +20,10 @@ public class ExceptionErr {
 	/**
 	 * Costruttore di ExceptionErr con parametri
 	 *
-	 * @param date       orario della richiesta
+	 * @param date orario della richiesta
 	 * @param httpStatus
-	 * @param exception  l'eccezione generata
-	 * @param message    messaggio dell'eccezione
+	 * @param exception l'eccezione generata
+	 * @param message messaggio dell'eccezione
 	 */
 	public ExceptionErr(Date date, HttpStatus httpStatus, String exception, String message) {
 		super();

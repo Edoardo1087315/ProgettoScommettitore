@@ -21,8 +21,25 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+/**
+ * Classe che crea il grafico
+ * @author Emanuele Biccheri
+ * @author Edoardo Bilancia
+ */
+
 public class Chart {
 
+	/**
+	 * Metodo che crea il grafico di linea 
+	 * @param hs la HashMap precedentemente creata e popolata
+	 * @param from data di inizio del periodo voluto
+	 * @param to data di fine del periodo voluto
+	 * @return un vettore di byte che visualizza il grafico
+	 * @throws DateException
+	 * @throws ParseException
+	 * @see currency.scommettitoreApp.service.DateService
+	 */
+	
 	public static byte[] lineChart(HashMap<String, CurrencyModel> hs, String from, String to) throws DateException, ParseException{
 		DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
 		Vector<String> date = DateService.dateRange(from, to);

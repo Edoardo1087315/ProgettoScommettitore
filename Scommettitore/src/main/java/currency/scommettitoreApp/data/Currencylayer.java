@@ -12,8 +12,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import currency.scommettitoreApp.exceptions.UrlException;
 import currency.scommettitoreApp.model.ApiModel;
 
+/**
+ * Classe che si occupa della connessione al sito
+ * @author Emanuele Biccheri
+ * @author Edoardo Bilancia
+ */
+
 public class Currencylayer {
 
+	/**
+	 * Metodo che fa la connessione al sito e il parsing dei dati
+	 * @param url url generato a cui accedere
+	 * @return un oggetto ApiModel
+	 * @throws UrlException
+	 * @throws IOException
+	 */
+	
 	public static ApiModel getJsonAndDecode(String url) throws UrlException,IOException {
 
 		ApiModel p = new ApiModel();

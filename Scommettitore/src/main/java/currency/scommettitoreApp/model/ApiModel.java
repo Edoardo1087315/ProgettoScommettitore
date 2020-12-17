@@ -2,6 +2,12 @@ package currency.scommettitoreApp.model;
 
 import java.util.HashMap;
 
+/**
+ * Classe per il parsing
+ * @author Emanuele Biccheri
+ * @author Edoardo Bilancia
+ */
+
 public class ApiModel {
 	
 	public Boolean success;
