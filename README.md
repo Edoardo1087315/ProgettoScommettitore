@@ -23,7 +23,7 @@ Dopo aver avviato l'applicazione, sarà possibile interrogarla attraverso richie
 le richieste gestite sono 5
 
 Tipo | path | parametri | informazioni restituite
----------------------------------------------------------------
+-----|------|-----------|--------------------------------------
 GET | /currencies | - | restituisce l'elenco delle valute disponibili
 GET | /currencies/metadata | - | restituisce i metadata
 GET | /currencies/statistics | from, to, currencies | restituisce le statistiche relative alle valute richiete nel periodo inserito
