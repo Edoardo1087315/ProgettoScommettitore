@@ -37,28 +37,28 @@ per specificare il tipo di filtro richiesto.
 ### i parametri
 i parametri permettono all'utente di effettuare delle richieste specifiche in base alle necessità.
 
-**from & to**
+-**from & to**
 
 in particolare i parametri from & to permettono di specificare il periodo sul quale ottenere le informazioni e vanno inseriti 
 
 secondo la seguente sintassi : ```yyyy-mm-dd ```
-- se non inseriti entrambi allora di default l'applicativo andrà a considerare il periodo che và da ieri ad oggi.
-- se l'utente inserisce solo il parametro "from" allora di default verrà considerato il periodo che va dalla data inserita ad oggi.
-- se l'utente inserisce solo il parametro "to" allora verrà restituito un errore.
-- se l'utente non inserisce la data come da sintassi verrà restituito un errore.
-- se il prametro "from" contiene una data maggiore o uguale di quella presente nel to viene restituito un errore.
+  - se non inseriti entrambi allora di default l'applicativo andrà a considerare il periodo che và da ieri ad oggi.
+  - se l'utente inserisce solo il parametro "from" allora di default verrà considerato il periodo che va dalla data inserita ad oggi.
+  - se l'utente inserisce solo il parametro "to" allora verrà restituito un errore.
+  - se l'utente non inserisce la data come da sintassi verrà restituito un errore.
+  - se il prametro "from" contiene una data maggiore o uguale di quella presente nel to viene restituito un errore.
 
-**currencies**
+-**currencies**
 
 il parametro "currencies" permette di filtrare le valute e di considerare le informazioni relative solo a quelle inserite.
 E' possible specificare più valute elencandole separate da virogla.
 
 un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD``` 
 
-- se il parametro non viene inserito l'applicativo non andrà a considerare il filtro e restituirà le informazioni relative a tutte le valute.
-- se il parametro contiene solo uno o più valute non valide verrà restituito un errore.
-- se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
-- alla rotta /currencies/chart il parametro assume un valore di default se non inserito pari ad "EUR".
+  - se il parametro non viene inserito l'applicativo non andrà a considerare il filtro e restituirà le informazioni relative a tutte le valute.
+  - se il parametro contiene solo uno o più valute non valide verrà restituito un errore.
+  - se il parametro contiene almeno una valuta corretta verranno filtrate tutte quelle valide e ignorate quelle invalide.
+  - alla rotta /currencies/chart il parametro assume un valore di default se non inserito pari ad "EUR".
 
 **Esempi**
 
