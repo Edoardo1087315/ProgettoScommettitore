@@ -125,7 +125,7 @@ Nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 ### Classi
 
-* **currency.scomettitoreApp.controller**
+#### currency.scomettitoreApp.controller
 
 Classe che si occupa di gestire le richieste dell'utente ed eventuali eccezioni.
 
