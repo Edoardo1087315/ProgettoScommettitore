@@ -140,7 +140,7 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 
 **currency.scomettitoreApp.filtersstatistics**
 
-<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFIlters.jpg"  width="600" />
+<img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassStatisticsFilters.jpg"  width="600" />
 
 **currency.scomettitoreApp.model**
 
