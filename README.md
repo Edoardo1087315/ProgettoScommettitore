@@ -179,3 +179,20 @@ nonostante ciò è consigliato inserire una valuta per volta affinchè la risolu
 * **chiamata GET /currencies/chart**
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreGetChart.jpg"  width="900" />
+
+
+## Autori
+
+* **Edoardo Bilancia**
+* **Emanuele Biccheri**
+
+#### Suddivisione del lavoro
+
+lo sviluppo del progetto è avvenuto per fasi,
+in primo luogo abbiamo fatto una stesura del codice UML per concretizzare le idee di entrambi.
+Abbiamo poi lavorato insieme tramite videochiamate con condivisione dello schermo per ragionare sulla possibile implementazione del codice,
+in particolar modo sulle parti più complesse ci siamo confrontati e abbiamo cercato in rete le possibili soluzioni ai nostri problemi.
+
+purchè sia capitato di lavorare individualmente al progetto, ogni modifica a quest'utlimo è stata sottoposta alla revisione dell'altro per 
+garantire un risultato migliore.
+
