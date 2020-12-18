@@ -85,6 +85,9 @@ Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul peri
 
 **NOTA:** I valori restituiti saranno ordinati dal meno recente al più recente.
 
+- **Esempi**
+  - esempi sulle statistiche [Es 1]() [Es 2]() [Es 3]()
+
 ### Filtri
 
 A disposizione dell'utente è presente la possibilità di richiedere, su un dato periodo, le valute che risultano più o meno costanti a seconda della richiesta.
