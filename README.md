@@ -86,7 +86,7 @@ Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul peri
 **NOTA:** I valori restituiti saranno ordinati dal meno recente al più recente.
 
 - **Esempi**
-  - esempi sulle statistiche [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1statistiche.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2statistiche.PNG)
+  - Esempi sulle statistiche [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1statistiche.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2statistiche.PNG)
 
 ### Filtri
 
@@ -111,6 +111,10 @@ Viene restituito un errore nei seguenti casi:
 > - Se l'utente inserisce un valore maggiore di quello delle valute richieste.
 > - Se la sintassi non è corretta.
 
+- **Esempi**
+  - Esempi sui filtri
+  - Esempio filtro doppio
+  - Esempi di errore
 
 ### Grafico 
 
