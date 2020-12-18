@@ -44,7 +44,7 @@ public class BodyParsing {
 		for (String x : body.keySet()) {
 			try {
 				Class<?> filterClass = Class.forName("currency.scommettitoreApp.filtersstatistics.Filter"); //la classe che contiene i metodi per filtrare
-				Method method = filterClass.getMethod(x, HashMap.class, Integer.class); //creo oggetto di tipo method che conterrà il metodo inserito e il valore associato
+				Method method = filterClass.getMethod(x, HashMap.class, Integer.class); //creo oggetto di tipo method che conterrà il metodo inserito così da poterlo invocare con il metodo invoke()
 				if(hs.keySet().size()<body.get(x) || body.get(x)<=0) throw new AmountException(); //eseguo dei controlli sul body inserito
 				try {
 					ls.addAll((ArrayList<ConstantCurrencyModel>) method.invoke(filterClass.newInstance(), hs, body.get(x))); //invoco il metodo (Es. "best") della classe filterClass passando la Hashmap e la quantità di valute da filtrare

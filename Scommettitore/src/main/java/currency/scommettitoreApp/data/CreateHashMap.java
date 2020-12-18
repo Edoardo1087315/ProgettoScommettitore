@@ -40,7 +40,7 @@ public class CreateHashMap {
 				vet.add(it.next().quotes.get(s));   //inserisco nel vettore tutti i valori assunti dalla valuta nel periodo
 			}
 			m = new CurrencyModel(vet);
-			hs.put(s, m);	//l'hashmap usa come chiavi i nomi delle valute e come valori oggetti di tipo apimodel, le statistiche non sono state calcolate.
+			hs.put(s, m);	//l'hashmap usa come chiavi i nomi delle valute e come valori, oggetti di tipo apimodel (le statistiche non sono state calcolate).
 
 		}
 		hs.remove("USDUSD"); // rimuovo questa conversione poichè inutile
