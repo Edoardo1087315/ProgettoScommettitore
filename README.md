@@ -56,7 +56,7 @@ la seguente sintassi : ```yyyy-mm-dd ```
 Il parametro "currencies" permette di filtrare le valute e di considerare le informazioni relative solo a quelle inserite.
 E' possible specificare più valute elencandole separate dalla virogla.
 
-Un esempio inserendo le valute EUR e AUD : ```http://......?currencies = EUR,AUD``` 
+Un esempio inserendo le valute "EUR" e "AUD" : ```http://......?currencies = EUR,AUD``` 
 
 > -  Se il parametro non viene inserito l'applicativo non andrà a considerare il filtro e restituirà le informazioni relative a tutte le valute.
 > -  Se il parametro contiene solo uno o più valute non valide verrà restituito un errore.
