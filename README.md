@@ -146,7 +146,9 @@ La classe UrlService si occupa di generare il link per le richieste API al sito 
 #### currency.scomettitoreApp.data
 
 La classe CurrencyLayer si occupa di effettuare la chiamata al sito ed effettua il parsing del JSON restituito.
+
 La classe Currency prende gli elementi parsati di tipo ApiModel (uno per ogni data) e li mette in un vettore.
+
 La classe CreateHashMap costruisce la hashmap e la popola in base alle richieste.
 
 <img src="https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/UML/ScommettitoreClassCurrencylayer.jpg"  width="700" />
