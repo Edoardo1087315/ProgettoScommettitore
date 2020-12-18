@@ -86,7 +86,7 @@ Alla rotta /currencies/statistics, oltre ai valori delle valute assunti sul peri
 **NOTA:** I valori restituiti saranno ordinati dal meno recente al più recente.
 
 - **Esempi**
-  - esempi sulle statistiche [Es 1]() [Es 2]() [Es 3]()
+  - esempi sulle statistiche [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1statistiche.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2statistiche.PNG)
 
 ### Filtri
 
