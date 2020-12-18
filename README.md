@@ -251,5 +251,5 @@ Abbiamo poi lavorato insieme tramite videochiamate con condivisione dello scherm
 in particolar modo sulle parti più complesse ci siamo confrontati e abbiamo cercato in rete le possibili soluzioni ai nostri problemi.
 
 Purchè sia capitato di lavorare individualmente al progetto, ogni modifica a quest'utlimo è stata sottoposta alla revisione dell'altro per 
-garantire un risultato migliore.
+garantire un risultato migliore. 
 
