@@ -102,8 +102,9 @@ Il campo "valore" corrisponde alla quantità di valute che l'utente vuole filtra
 Oltre al nome delle valute l'applicativo restituisce l'indice di volatilità relativo ad ogni valuta filtrata, utile in secondo luogo per delle analisi di mercato.
 
 Se l'utente inserisce i due filtri contemporaneamente otterrà una lista unica in cui saranno presenti le valute filtrate nell'ordine con cui sono stati indicati nel body.
-La sintassi per utilizzare i due filtri contemporaneamente è:
-```{"metodo" : valore, "metodo" : valore}``` 
+La sintassi per utilizzare i due filtri contemporaneamente 
+
+è: ```{"metodo" : valore, "metodo" : valore}``` 
 
 Viene restituito un errore nei seguenti casi:
 > - Se l'utente inserisce un metodo non presente.
