@@ -93,7 +93,7 @@ public class PrincipalService {
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
 	 * @param currencies elenco delle valute richieste
-	 * @return un vettore di byte che visualizza il grafico
+	 * @return un array di byte
 	 * @throws DateException
 	 * @throws UrlException
 	 * @throws IOException

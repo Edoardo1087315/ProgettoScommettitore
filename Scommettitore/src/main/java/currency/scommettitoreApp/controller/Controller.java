@@ -111,7 +111,7 @@ public class Controller {
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
 	 * @param currencies elenco delle valute richieste
-	 * @return un vettore di byte che visualizza il grafico
+	 * @return un array di byte
 	 * @throws UrlException se si verifica un problema nella connessione al sito
 	 * @throws DateException se la data di inizio inserita eccede quella di fine
 	 * @throws IOException se si verifica un problema di I/O
