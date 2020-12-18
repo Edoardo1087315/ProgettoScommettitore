@@ -41,39 +41,41 @@ public class Chart {
 	 */
 	
 	public static byte[] lineChart(HashMap<String, CurrencyModel> hs, String from, String to) throws DateException, ParseException{
-		DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-		Vector<String> date = DateService.dateRange(from, to);
+		DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();  //creo un dataset nel quale andrò ad inserire i valori
+		Vector<String> date = DateService.dateRange(from, to);	//le date andranno sull'asse delle X
 		long period = DateService.getPeriod(from, to);
-		Set<String> x = hs.keySet();
+		Set<String> x = hs.keySet(); //il keySet di hs contiene tutte le valute che voglio graficare, se non inserito il parametro currencies, di default contiene solo "EUR"
 		for (String y : x) {
 			Iterator<Double> it = hs.get(y).getValues().iterator();
 			Iterator<String> it2 = date.iterator();
 			for (int i = 0; i <= period; i++) {
-				line_chart_dataset.addValue(it.next(), y, it2.next());
+				line_chart_dataset.addValue(it.next(), y, it2.next()); //aggiungo al dataset i valori assunti nel tempo dalle valute
 			}
 		} 
 
 		JFreeChart lineChartObject = ChartFactory.createLineChart("Variazioni", "Date", "Valori", line_chart_dataset,
-				PlotOrientation.VERTICAL, true, true, false);
+				PlotOrientation.VERTICAL, true, true, false); //creo un grafico lineare con il metodo createLineChart, è possibile specificare se mostrare la legenda, tooltips e urls 
+		
+		
+		CategoryPlot plot = (CategoryPlot) lineChartObject.getPlot(); //per andare a personalizzare il grafico ho bisogno di un oggetto della classse CategoryPlot
+		plot.getRangeAxis().setAutoRange(true); 					  //imposto autorange degli assi, in questo modo la risoluzione del grafico è maggiore 
+		((NumberAxis) plot.getRangeAxis()).setAutoRangeIncludesZero(false); //devo dire al plot che non deve contenere lo 0 altrimenti sarà sempre visibile sul grafico e la risoluzione di quest'ultimo risulta meno valida
+		plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45); //i valori scritti sugli assi hanno un angolo di 45 gradi cosi da essere visibili anche su periodi lunghi
+		plot.setDomainGridlinesVisible(true); //inoltre genero anche la griglia sul grafico in questo modo sarà più semplice consultarlo
+		plot.setRangeGridlinesVisible(true);
 
-		CategoryPlot plot = (CategoryPlot) lineChartObject.getPlot();
-		plot.getRangeAxis().setAutoRange(true);
-		((NumberAxis) plot.getRangeAxis()).setAutoRangeIncludesZero(false);
-		plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
-		plot.setDomainGridlinesVisible(true);
-		plot.setRangeGridlinesVisible(false);
+		int width = 640; 
+		int height = 480; 
+		BufferedImage image = lineChartObject.createBufferedImage(width, height); 
 
-		int width = 640; /* Width of the image */
-		int height = 480; /* Height of the image */
-		BufferedImage image = lineChartObject.createBufferedImage(width, height);
-
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ByteArrayOutputStream baos = new ByteArrayOutputStream(); //creo un output stream che mi servira per scrivere un array di byte
 		try {
-			ImageIO.write(image, "PNG", baos);
+			ImageIO.write(image, "PNG", baos); //l'immagine viene letta e sarà trascritta sul outpustream baos con formato "PNG"
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return baos.toByteArray();
+		return baos.toByteArray(); 
+		
 
 	}
 

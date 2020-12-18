@@ -29,11 +29,11 @@ public class Filter {
 	
 	public static ArrayList<ConstantCurrencyModel> filter(HashMap<String, CurrencyModel> hs) {
 		list = new ArrayList<ConstantCurrencyModel>();
-		ConstantCurrencyModel e;
-		for (String currency : hs.keySet()) {
+		ConstantCurrencyModel e; //modello che contiene solo il nome della valuta e l'indice di volatilità 
+		for (String currency : hs.keySet()) {  //itero sulle valute
 			e = new ConstantCurrencyModel();
-			e.setStandard_deviation(hs.get(currency).getStandard_deviation());
-			e.setCurrency(currency);
+			e.setStandard_deviation(hs.get(currency).getStandard_deviation()); //ne setto la deviazione standard
+			e.setCurrency(currency); //e setto il nome della valuta
 			list.add(e);
 		}
 		return list;
@@ -48,7 +48,7 @@ public class Filter {
 	
 	public static ArrayList<ConstantCurrencyModel> best(HashMap<String, CurrencyModel> hs, Integer amount) {
 		list = filter(hs);
-		list.sort(Comparator.comparing(ConstantCurrencyModel::getStandard_deviation));
+		list.sort(Comparator.comparing(ConstantCurrencyModel::getStandard_deviation)); //utilizzo un comparatore che mi permette di ordinare la lista secondo una caratteristica degli oggetti presenti (nel nostro caso ci interessa la dev_standard)
 		return new ArrayList<ConstantCurrencyModel>(list.subList(0, amount));
 
 	}
@@ -62,7 +62,7 @@ public class Filter {
 	
 	public static ArrayList<ConstantCurrencyModel> worst(HashMap<String, CurrencyModel> hs, Integer amount) {
 		list = filter(hs);
-		list.sort(Comparator.comparing(ConstantCurrencyModel::getStandard_deviation).reversed());
+		list.sort(Comparator.comparing(ConstantCurrencyModel::getStandard_deviation).reversed()); //utilizzo un comparatore che mi permette di ordinare la lista secondo una caratteristica degli oggetti presenti (nel nostro caso ci interessa la dev_standard)
 		return new ArrayList<ConstantCurrencyModel>(list.subList(0, amount));
 
 	}

@@ -33,14 +33,14 @@ public class CreateHashMap {
 		Vector<Double> vet;
 		CurrencyModel m;
 
-		for (String s : v.get(0).quotes.keySet()) {
+		for (String s : v.get(0).quotes.keySet()) {   //for each dove ad ogni ciclo cambio valuta
 			Iterator<ApiModel> it = v.iterator();
 			vet = new Vector<Double>();
 			while (it.hasNext()) {
-				vet.add(it.next().quotes.get(s));
+				vet.add(it.next().quotes.get(s));   //inserisco nel vettore tutti i valori assunti dalla valuta nel periodo
 			}
 			m = new CurrencyModel(vet);
-			hs.put(s, m);
+			hs.put(s, m);	//l'hashmap usa come chiavi i nomi delle valute e come valori oggetti di tipo apimodel, le statistiche non sono state calcolate.
 
 		}
 		hs.remove("USDUSD"); // rimuovo questa conversione poichè inutile

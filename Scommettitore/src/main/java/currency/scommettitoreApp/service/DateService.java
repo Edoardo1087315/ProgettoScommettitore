@@ -52,7 +52,7 @@ public class DateService {
 	
 	public static void dateVerify(String from, String to) throws ParseException {
 		
-		df.setLenient(false);
+		df.setLenient(false); //con questo comando l'oggetto df non sarà clemente sul parse che dovrà fare della stringa, se la stringa non è scritta come da sintassi chiama l'eccezione ParseException
 		
 		if (from.equals("") && to.equals("")) {
 			to = today();
@@ -66,7 +66,7 @@ public class DateService {
 	}
 
 	/**
-	 * Metodo che genera un tutte le date comprese nel periodo
+	 * Metodo che genera tutte le date comprese nel periodo e le inserisce in un vettore 
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
 	 * @return un Vector di String con tutte le date del periodo
@@ -79,7 +79,7 @@ public class DateService {
 		Long period = getPeriod(from, to);
 		Vector<String> days = new Vector<String>();
 
-		for (int i = 0; i <= period; i++) {
+		for (int i = 0; i <= period; i++) {					
 			days.add(df.format(from_date));
 			from_date.setTime((from_date.getTime() + DAY));
 		}

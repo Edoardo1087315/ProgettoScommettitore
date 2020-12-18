@@ -55,10 +55,10 @@ public class Currencies {
 		Vector<ApiModel> p = new Vector<ApiModel>();
 
 		Vector<String> days = DateService.dateRange(from, to);
-		for (String day : days) {
+		for (String day : days) {														//in questo modo faccio una richiesta al sito per ogni giornata
 			p.add(Currencylayer.getJsonAndDecode(UrlService.getUrl(day, currencies)));
 		}
-		return p;
+		return p;  
 	}
 
 }

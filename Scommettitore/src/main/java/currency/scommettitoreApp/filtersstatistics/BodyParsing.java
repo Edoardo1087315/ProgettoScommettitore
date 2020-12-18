@@ -35,19 +35,19 @@ public class BodyParsing {
 	
 	public static ArrayList<ConstantCurrencyModel> bodyParsing(String filter, HashMap<String, CurrencyModel> hs) throws NoSuchMethodException, JsonMappingException, JsonProcessingException, AmountException {
 
-		HashMap<String, Integer> body = new HashMap<String, Integer>();
+		HashMap<String, Integer> body = new HashMap<String, Integer>(); //HashMap che avrà come chiave i metodi, e come valore intero associato la quantità di valute da filtrare
 		ArrayList<ConstantCurrencyModel> ls = new ArrayList<ConstantCurrencyModel>();
 		ObjectMapper obj = new ObjectMapper();
 
-			body = obj.readValue(filter, HashMap.class);
+			body = obj.readValue(filter, HashMap.class); //faccio il parsing del body inserito dall'utente in formato JSON
 
 		for (String x : body.keySet()) {
 			try {
-				Class<?> filterClass = Class.forName("currency.scommettitoreApp.filtersstatistics.Filter");
-				Method method = filterClass.getMethod(x, HashMap.class, Integer.class);
-				if(hs.keySet().size()<body.get(x) || body.get(x)<=0) throw new AmountException();
+				Class<?> filterClass = Class.forName("currency.scommettitoreApp.filtersstatistics.Filter"); //la classe che contiene i metodi per filtrare
+				Method method = filterClass.getMethod(x, HashMap.class, Integer.class); //creo oggetto di tipo method che conterrà il metodo inserito e il valore associato
+				if(hs.keySet().size()<body.get(x) || body.get(x)<=0) throw new AmountException(); //eseguo dei controlli sul body inserito
 				try {
-					ls.addAll((ArrayList<ConstantCurrencyModel>) method.invoke(filterClass.newInstance(), hs, body.get(x)));
+					ls.addAll((ArrayList<ConstantCurrencyModel>) method.invoke(filterClass.newInstance(), hs, body.get(x))); //invoco il metodo (Es. "best") della classe filterClass passando la Hashmap e la quantità di valute da filtrare
 				} catch (IllegalAccessException | InvocationTargetException e) {
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
