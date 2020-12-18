@@ -114,7 +114,7 @@ Viene restituito un errore nei seguenti casi:
 - **Esempi**
   - Esempi sui filtri [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2filtri.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio3filtri.PNG)
   - Esempio filtro doppio [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1filtri.PNG)
-  - Esempi di errore [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1filtriERR.PNG)[Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2filtriERR.PNG)[Es 3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio3filtriERR.PNG)[Es 4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio4filtriERR.PNG)
+  - Esempi di errore [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1filtriERR.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2filtriERR.PNG [Es 3](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio3filtriERR.PNG) [Es 4](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio4filtriERR.PNG)
 
 ### Grafico 
 
@@ -123,6 +123,8 @@ Un ulteriore servizio fornito dall'applicativo è la possibilità di consultare 
 
 Nonostante ciò è consigliato inserire una valuta per volta affinchè la risoluzione del grafico risulti sufficientemente valida.
 
+- **Esempi**
+  - Esempi sul grafico [Es 1](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio1grafico.PNG) [Es 2](https://github.com/Edoardo1087315/ProgettoScommettitore/blob/master/images/esempio2grafico.PNG)
 
 ## Sviluppo
 
