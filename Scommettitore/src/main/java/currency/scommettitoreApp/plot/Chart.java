@@ -30,11 +30,11 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class Chart {
 
 	/**
-	 * Metodo che crea il grafico di linea 
+	 * Metodo che crea il grafico lineare 
 	 * @param hs la HashMap precedentemente creata e popolata
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
-	 * @return un vettore di byte che visualizza il grafico
+	 * @return un array di byte
 	 * @throws DateException
 	 * @throws ParseException
 	 * @see currency.scommettitoreApp.service.DateService
@@ -58,7 +58,7 @@ public class Chart {
 		
 		
 		CategoryPlot plot = (CategoryPlot) lineChartObject.getPlot(); //per andare a personalizzare il grafico ho bisogno di un oggetto della classse CategoryPlot
-		plot.getRangeAxis().setAutoRange(true); 					  //imposto autorange degli assi, in questo modo la risoluzione del grafico è maggiore 
+		plot.getRangeAxis().setAutoRange(true); 					  //imposto autorange degli assi, in questo modo la risoluzione del grafico è migliore 
 		((NumberAxis) plot.getRangeAxis()).setAutoRangeIncludesZero(false); //devo dire al plot che non deve contenere lo 0 altrimenti sarà sempre visibile sul grafico e la risoluzione di quest'ultimo risulta meno valida
 		plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45); //i valori scritti sugli assi hanno un angolo di 45 gradi cosi da essere visibili anche su periodi lunghi
 		plot.setDomainGridlinesVisible(true); //inoltre genero anche la griglia sul grafico in questo modo sarà più semplice consultarlo

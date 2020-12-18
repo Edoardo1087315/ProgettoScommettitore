@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.http.HttpStatus;
 
 /**
- * Classe dell'eccezione in caso di errore
+ * Classe d' eccezione che modella il messaggio di risposta all'utente
  * @author Emanuele Biccheri
  * @author Edoardo Bilancia
  */

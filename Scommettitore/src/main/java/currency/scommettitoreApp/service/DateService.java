@@ -19,7 +19,7 @@ import currency.scommettitoreApp.exceptions.DateException;
 public class DateService {
 
 	/**
-	 * Valore che corrisponde ad un giorno nel DateFormat
+	 * Valore che corrisponde ad un giorno in ms
 	 * DAY Valore costante :{@value}
 	 */
 	

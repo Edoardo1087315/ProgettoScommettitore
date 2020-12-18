@@ -36,7 +36,7 @@ public class Currencies {
 	}
 
 	/**
-	 * Metodo che itera chiamate al sito per il periodo richiesto e restituisce un Vector di apiModel indicizzato sul periodo (?)
+	 * Metodo che itera chiamate al sito per il periodo richiesto e restituisce un Vector di apiModel
 	 * @param from data di inizio del periodo voluto
 	 * @param to data di fine del periodo voluto
 	 * @param currencies elenco delle valute richieste

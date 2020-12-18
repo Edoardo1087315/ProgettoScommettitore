@@ -22,8 +22,8 @@ import currency.scommettitoreApp.model.CurrencyModel;
 public class BodyParsing {
 
 	/**
-	 * Metodo che prende il body del filtro, lo decodifica e richiama il metodo per filtrare
-	 * @param filter body del filtro richiesto
+	 * Metodo che prende il body in formato JSON inserito nella POST dall'utente, lo decodifica e richiama il metodo per filtrare
+	 * @param filter body del filtro inserito dall'utente
 	 * @param hs la HashMap precedentemente creata e popolata con le valute e le statistiche
 	 * @return un ArrayList di ConstantCurrencyModel con le valute filtrate
 	 * @throws NoSuchMethodException

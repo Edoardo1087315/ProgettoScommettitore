@@ -1,7 +1,7 @@
 package currency.scommettitoreApp.exceptions;
 
 /**
- * Classe della eccezione se la data di inizio inserita eccede quella di fine
+ * Classe d' eccezione se la data di inizio inserita eccede o è uguale a quella di fine
  * @author Emanuele Biccheri
  * @author Edoardo Bilancia
  */

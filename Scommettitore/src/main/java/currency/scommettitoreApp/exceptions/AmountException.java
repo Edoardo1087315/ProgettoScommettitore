@@ -1,7 +1,7 @@
 package currency.scommettitoreApp.exceptions;
 
 /**
- * Classe della eccezione se la quantità nel filtro eccede il numero di valute richieste
+ * Classe d' eccezione che viene lanciata se la quantità nel filtro eccede il numero di valute richieste o se la quantità è non positiva
  * @author Emanuele Biccheri
  * @author Edoardo Bilancia
  */

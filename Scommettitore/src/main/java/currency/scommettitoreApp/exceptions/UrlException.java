@@ -1,7 +1,7 @@
 package currency.scommettitoreApp.exceptions;
 
 /**
- * Classe della eccezione se si verifica un problema nella connessione al sito
+ * Classe d' eccezione lanciata se si verifica un problema nella richiesta al sito
  * @author Emanuele Biccheri
  * @author Edoardo Bilancia
  */
