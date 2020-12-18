@@ -12,7 +12,7 @@ public class UrlService {
 	 * Chiave d'accesso al sito
 	 */
 	
-	private static final String ACCESS_KEY = "0533f14c0a3ce40e6a6766be7b2f54e1";
+	private static final String ACCESS_KEY = "3d3321661e632b55da3b479f6ceaf5b8";
 	
 	/**
 	 * Base dell'url comune a tutti
